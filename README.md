@@ -75,9 +75,9 @@ The quantities required by Stage 15 are:
 
 where
 
-\[
-W=\frac{1}{2}\boldsymbol{\sigma}:\boldsymbol{\varepsilon}^{el}.
-\]
+$$
+W = \frac{1}{2}\boldsymbol{\sigma}:\boldsymbol{\varepsilon}^{el}
+$$
 
 The vertical displacement is used to modify the initial Cu surface, while \(W\) provides the mechanical contribution to the phase-field model.
 
