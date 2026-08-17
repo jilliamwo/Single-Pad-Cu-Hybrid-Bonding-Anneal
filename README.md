@@ -207,9 +207,9 @@ Example:
 
 Stage 15 calculates the raw Cu surface diffusivity and applies a calibration factor:
 
-\[
+$$
 D_s^{eff}=C_DD_s.
-\]
+$$
 
 The baseline simulations use:
 
