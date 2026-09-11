@@ -1,0 +1,1281 @@
+{
+  "export_audits": {
+    "200_500nm_3.5.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 128.99998059846232,
+          "nu": 0.34000001925144746,
+          "relative_residual": 1.809240120689321e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 72.99986919410011,
+          "nu": 0.1699988305379824,
+          "relative_residual": 2.2791244713796088e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 73.00004271812499,
+          "nu": 0.17000014778412173,
+          "relative_residual": 2.2873702404153547e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        40.68905496596082,
+        61.967798070110625,
+        141.19713205656836,
+        172.1833887216754,
+        172.6899308211107
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.29064039408866993,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.003424920080224622,
+          "min": 0.003275605998796621,
+          "max": 0.004114637453740945
+        },
+        "750-900_nm": {
+          "median": 0.003385618396471256,
+          "min": 0.003075429491708729,
+          "max": 0.0034500616193063097
+        },
+        "900-950_nm": {
+          "median": 0.0030284623796791215,
+          "min": 0.0030153529490616693,
+          "max": 0.0030314967557932295
+        },
+        "970-997_nm": {
+          "median": 0.0030242521630094487,
+          "min": 0.003004880751879787,
+          "max": 0.0030405055992508943
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.13437022686862,
+      "exported_W_legacy_formula_relative_error": 0.6505785556164468,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123000000000001e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 0.54056,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0030242521630094487,
+        "min": 0.003004880751879787,
+        "max": 0.0030405055992508943
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 9.924513972055848e-05,
+        "min": 9.795089784517169e-05,
+        "max": 0.0001029815169660677
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.00010308229853289247,
+        "min": 9.733051948051955e-05,
+        "max": 0.00010914337848766484
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.0042552,
+          "median": 0.0019699999999999943
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    },
+    "250C_500nm_3.5recess.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 129.00002674944764,
+          "nu": 0.34000002859077555,
+          "relative_residual": 1.6582154281247217e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 73.00002519629439,
+          "nu": 0.17000024441105177,
+          "relative_residual": 2.4822980214763294e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 73.00001443451619,
+          "nu": 0.1699998508636992,
+          "relative_residual": 2.2210231191837825e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        1.1997262974528815,
+        57.85225094877508,
+        117.90433652754253,
+        167.50546613609927,
+        174.55279320512176
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.07075682937751904,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.0038835962936221535,
+          "min": 0.0038559999699157733,
+          "max": 0.004725316472244563
+        },
+        "750-900_nm": {
+          "median": 0.003880785833752341,
+          "min": 0.0038738863770728144,
+          "max": 0.003889469105339098
+        },
+        "900-950_nm": {
+          "median": 0.0038810007439824944,
+          "min": 0.0038777226005361804,
+          "max": 0.0038929770632798537
+        },
+        "970-997_nm": {
+          "median": 0.0038848612382446036,
+          "min": 0.0038567560486891398,
+          "max": 0.0039007567669172133
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.13433430398436,
+      "exported_W_legacy_formula_relative_error": 0.686381000409924,
+      "exported_W_full_engineering_shear_formula_relative_error": 8.306049407110982e-06,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123000000000001e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 0.18292,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0038848612382446036,
+        "min": 0.0038567560486891398,
+        "max": 0.0039007567669172133
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.0001261710406823627,
+        "min": 0.00012466825349301345,
+        "max": 0.0001295682834331335
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.0001284433255208034,
+        "min": 0.0001089235436893198,
+        "max": 0.000138873354225636
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.00501301,
+          "median": 0.0023000000000000078
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    },
+    "250_500nm_3.5_BCB.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 128.99995962747016,
+          "nu": 0.33999987176225116,
+          "relative_residual": 2.656312534210991e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 2.9000006606671205,
+          "nu": 0.3399998107776755,
+          "relative_residual": 3.57104995048414e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 2.9000002658062125,
+          "nu": 0.3399999678220943,
+          "relative_residual": 1.7195347482229833e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        40.42635491929368,
+        89.65240708934243,
+        134.74178541195008,
+        162.64586449622414,
+        174.34180612234118
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.019256605463502014,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.0038743807059766788,
+          "min": 0.0038474210770156293,
+          "max": 0.0039100380192462255
+        },
+        "750-900_nm": {
+          "median": 0.003878476430206111,
+          "min": 0.0038275020944485384,
+          "max": 0.0039121238781487586
+        },
+        "900-950_nm": {
+          "median": 0.0038803248663101387,
+          "min": 0.00384880761487955,
+          "max": 0.003926691426024888
+        },
+        "970-997_nm": {
+          "median": 0.00391252525773148,
+          "min": 0.0036201647335421597,
+          "max": 0.004090063857677829
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.1343362645268,
+      "exported_W_legacy_formula_relative_error": 0.6730686644075036,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 18.684,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0038842043573266015,
+        "min": 0.0036201647335421597,
+        "max": 0.004090063857677829
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.009561996929923069,
+        "min": 0.009540116520351149,
+        "max": 0.009637811948676796
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.009550524312575807,
+        "min": 0.009422041852001595,
+        "max": 0.009590486734693999
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.036000000000001114,
+          "median": 0.009000000000000279
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    },
+    "250_500nm_3.5_PolyimideA.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2104,
+          "E_GPa": 117.0000252890745,
+          "nu": 0.300000001734576,
+          "relative_residual": 2.1414161483855515e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 473,
+          "E_GPa": 1.7000004597443543,
+          "nu": 0.3399998223123433,
+          "relative_residual": 3.5938543761650535e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1720,
+          "E_GPa": 1.699999212005123,
+          "nu": 0.34000007668074334,
+          "relative_residual": 1.6749362880350526e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        25.94391259220575,
+        66.98786950228066,
+        106.59971088491707,
+        127.8771828677687,
+        174.41962481039798
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.0009505703422053232,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.003879874326383417,
+          "min": 0.0038539587625350384,
+          "max": 0.003907503762535038
+        },
+        "750-900_nm": {
+          "median": 0.0038776024175391083,
+          "min": 0.0038396566294859554,
+          "max": 0.0039130241125542265
+        },
+        "900-950_nm": {
+          "median": 0.0038800983065950963,
+          "min": 0.0038298717468807897,
+          "max": 0.0039205234245077965
+        },
+        "970-997_nm": {
+          "median": 0.003893019746835604,
+          "min": 0.003800759733542159,
+          "max": 0.004138356132075766
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 44.99998927251166,
+      "exported_W_legacy_formula_relative_error": 0.6248550244944582,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123000000000001e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7274,
+      "duplicate_node_ids": 0,
+      "duplicate_coordinates": 0,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 24.139,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0038980970224720326,
+        "min": 0.003800759733542159,
+        "max": 0.004138356132075766
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.012524149804247167,
+        "min": 0.01250353671189144,
+        "max": 0.01259694568690091
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.012487355908811129,
+        "min": 0.012449043065103102,
+        "max": 0.012568662733929958
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 0,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 0,
+          "max": null,
+          "median": null
+        },
+        "side": {
+          "n_groups": 0,
+          "max": null,
+          "median": null
+        }
+      }
+    },
+    "250_500nm_3.5_PolyimideB.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2104,
+          "E_GPa": 117.00001260458397,
+          "nu": 0.29999994097834426,
+          "relative_residual": 1.2567407914762917e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 473,
+          "E_GPa": 3.2000007917146807,
+          "nu": 0.33999981630023457,
+          "relative_residual": 1.9620689984863063e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1720,
+          "E_GPa": 3.2000016978849106,
+          "nu": 0.3399999648581854,
+          "relative_residual": 1.7344107166850665e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        28.777549821400708,
+        57.65549619807672,
+        83.03577521652893,
+        97.8451281454599,
+        135.43418717591211
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.0,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.0038776273084636863,
+          "min": 0.0038695177425821983,
+          "max": 0.003881053081255018
+        },
+        "750-900_nm": {
+          "median": 0.003877728211837705,
+          "min": 0.0038727510310486175,
+          "max": 0.00388473408369407
+        },
+        "900-950_nm": {
+          "median": 0.003872431991247243,
+          "min": 0.003869835281501418,
+          "max": 0.0038845660722099957
+        },
+        "970-997_nm": {
+          "median": 0.003879803711339958,
+          "min": 0.003856491104868825,
+          "max": 0.003899667641509601
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 45.00003246855802,
+      "exported_W_legacy_formula_relative_error": 0.7006820310377541,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123000000000001e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7274,
+      "duplicate_node_ids": 0,
+      "duplicate_coordinates": 0,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 10.610000000000001,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0038682882706767064,
+        "min": 0.003856491104868825,
+        "max": 0.003899667641509601
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.00523380061928963,
+        "min": 0.005224236153232241,
+        "max": 0.005280230874097822
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.005229370572179518,
+        "min": 0.005211020816491531,
+        "max": 0.005247529463196437
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 0,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 0,
+          "max": null,
+          "median": null
+        },
+        "side": {
+          "n_groups": 0,
+          "max": null,
+          "median": null
+        }
+      }
+    },
+    "250_500nm_3.5_SiCN.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 129.00005033104352,
+          "nu": 0.33999999237160283,
+          "relative_residual": 1.5291089286464842e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 150.00034019409017,
+          "nu": 0.24999971657430145,
+          "relative_residual": 2.489308932555331e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 150.00000892622137,
+          "nu": 0.2499999726035274,
+          "relative_residual": 2.779183910179498e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        38.54395914349096,
+        132.38656087427876,
+        173.29934443903704,
+        177.85129333503167,
+        192.26637797597374
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.5884460367218988,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.011410584863618097,
+          "min": 0.009932612960579235,
+          "max": 0.011535496070569414
+        },
+        "750-900_nm": {
+          "median": 0.01066216387731778,
+          "min": 0.008922379927901916,
+          "max": 0.011322537892976587
+        },
+        "900-950_nm": {
+          "median": 0.007216200897155378,
+          "min": 0.005964462171581745,
+          "max": 0.008323518467023209
+        },
+        "970-997_nm": {
+          "median": 0.0038705138520598206,
+          "min": 0.0038578432989689517,
+          "max": 0.004001705210970341
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.13430693754431,
+      "exported_W_legacy_formula_relative_error": 0.5930311461277645,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 1.4423000000000001,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0038705138520598206,
+        "min": 0.0038581763624679637,
+        "max": 0.003894735273584847
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.0006879584243566236,
+        "min": 0.0006774923233143791,
+        "max": 0.0006975892814371259
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.000687015738980988,
+        "min": 0.0006814186756975383,
+        "max": 0.0006894545954692634
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.0027500000000000163,
+          "median": 0.002390000000000004
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    },
+    "250_500nm_3.5_SiCOH.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 129.0000008857759,
+          "nu": 0.34000006086373685,
+          "relative_residual": 1.6762444620956338e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 5.999998619450978,
+          "nu": 0.22000018278330727,
+          "relative_residual": 1.856079743627892e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 5.999998732691613,
+          "nu": 0.2199998823072016,
+          "relative_residual": 1.0539519831256793e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        38.14803968477474,
+        53.4317897192554,
+        59.20817943358839,
+        71.57646532000908,
+        121.15086308417285
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.0,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.0038760837625350887,
+          "min": 0.0038706123656776286,
+          "max": 0.0038804125310870326
+        },
+        "750-900_nm": {
+          "median": 0.0038762538946895938,
+          "min": 0.0038720865700058484,
+          "max": 0.003879588142580016
+        },
+        "900-950_nm": {
+          "median": 0.003874169234135681,
+          "min": 0.003867200978552229,
+          "max": 0.0038804100267380167
+        },
+        "970-997_nm": {
+          "median": 0.0038711027319585875,
+          "min": 0.0038502383707863827,
+          "max": 0.003907711477987546
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.13427089753484,
+      "exported_W_legacy_formula_relative_error": 0.8830734073743325,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 4.5511,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0038626239968653623,
+        "min": 0.0038502383707863827,
+        "max": 0.003907711477987546
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.0027328421932201865,
+        "min": 0.0027264615722266483,
+        "max": 0.0027452757858861376
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.002735853254342999,
+        "min": 0.0027285522240193946,
+        "max": 0.0027393171521035687
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.0018000000000001385,
+          "median": 0.0005999999999997704
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    },
+    "250_500nm_3.5_SiO2.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 129.00003972952723,
+          "nu": 0.3399999748261036,
+          "relative_residual": 1.689284243527914e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 72.99983469637391,
+          "nu": 0.16999948015550656,
+          "relative_residual": 2.4684973231643393e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 72.99999712410187,
+          "nu": 0.17000053649197158,
+          "relative_residual": 2.116232683264971e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        48.926673806511886,
+        104.70355233609297,
+        170.12041329305544,
+        174.27242927587176,
+        179.09453031011304
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.503358710255262,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.006587754018503613,
+          "min": 0.005984742186121128,
+          "max": 0.006783901423987148
+        },
+        "750-900_nm": {
+          "median": 0.0057409241294859425,
+          "min": 0.005473894863013691,
+          "max": 0.0057922032044522495
+        },
+        "900-950_nm": {
+          "median": 0.004788329223194768,
+          "min": 0.004126579825737258,
+          "max": 0.005260296684491959
+        },
+        "970-997_nm": {
+          "median": 0.0038787068553460045,
+          "min": 0.0038666921473354127,
+          "max": 0.003889060136704095
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.13432544091716,
+      "exported_W_legacy_formula_relative_error": 0.6601392703620543,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123000000000001e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 0.66728,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0038787068553460045,
+        "min": 0.0038666921473354127,
+        "max": 0.003889060136704095
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.0001280970080748321,
+        "min": 0.0001260692098962494,
+        "max": 0.00013592745508981998
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.00013147648807116681,
+        "min": 0.00012451915584415607,
+        "max": 0.0001373714476344491
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.004753999999999992,
+          "median": 0.002740000000000034
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    },
+    "250_500nm_3.5_diamond.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 128.99996862613145,
+          "nu": 0.34000003620643815,
+          "relative_residual": 1.389904693079298e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 1.0499999983168978e-06,
+          "nu": 0.07000002673635808,
+          "relative_residual": 1.925613754068497e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 1.0500001149498688e-06,
+          "nu": 0.07000040431135053,
+          "relative_residual": 1.0668584990123703e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        6.805995935203017e-08,
+        9.059502884897987e-07,
+        3.7547637235916723e-06,
+        6.120032304561964e-06,
+        1.8209100292710786e-05
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.0,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.003876454052330928,
+          "min": 0.00387449876054457,
+          "max": 0.0038772726799042234
+        },
+        "750-900_nm": {
+          "median": 0.003874668787417138,
+          "min": 0.0038716654387669375,
+          "max": 0.0038804220097338293
+        },
+        "900-950_nm": {
+          "median": 0.0038770053239375684,
+          "min": 0.003873085324514507,
+          "max": 0.0038840262402631866
+        },
+        "970-997_nm": {
+          "median": 0.00387218045823392,
+          "min": 0.00385767790884953,
+          "max": 0.0038871473406710015
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.13432430648537,
+      "exported_W_legacy_formula_relative_error": 0.697360110931196,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 0.8546999999999999,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.00387218045823392,
+        "min": 0.00385767790884953,
+        "max": 0.0038871473406710015
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.00022647476256983242,
+        "min": 0.00022245900239425352,
+        "max": 0.00023387004811547749
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.00023510603040343835,
+        "min": 0.0002280112200568397,
+        "max": 0.000250530004043667
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.012862000000000005,
+          "median": 0.0033850000000000095
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    },
+    "300_500nm_3.5.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 129.00008845431412,
+          "nu": 0.33999990120406953,
+          "relative_residual": 1.541142855869864e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 73.00005457660473,
+          "nu": 0.17000010728094045,
+          "relative_residual": 2.2750799831562964e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 72.99996641359813,
+          "nu": 0.16999958974303095,
+          "relative_residual": 2.018898877859452e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        21.153035617728726,
+        136.59636722667037,
+        172.2173184525877,
+        175.9030982260919,
+        188.71094523370923
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.6005373936408419,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.01003164510458567,
+          "min": 0.009524194703168853,
+          "max": 0.010305839414360187
+        },
+        "750-900_nm": {
+          "median": 0.009310159738521073,
+          "min": 0.008364523749098766,
+          "max": 0.009421413210475283
+        },
+        "900-950_nm": {
+          "median": 0.00695314659737417,
+          "min": 0.005885692694369992,
+          "max": 0.007890686604278064
+        },
+        "970-997_nm": {
+          "median": 0.0047232545876286095,
+          "min": 0.004714436389512944,
+          "max": 0.004739515857366969
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.13429602191869,
+      "exported_W_legacy_formula_relative_error": 0.6477424304410546,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123000000000001e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 0.7709400000000001,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.0047269026478149135,
+        "min": 0.004714436389512944,
+        "max": 0.004739515857366969
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.00015733669569082127,
+        "min": 0.00015082908204711596,
+        "max": 0.00017021272455089724
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.00015857112021809582,
+        "min": 0.00015161285714285775,
+        "max": 0.00016459229276182658
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.005753999999999988,
+          "median": 0.0034600000000000065
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    },
+    "350_500nm_3.5.csv": {
+      "elastic_constants": {
+        "Cu": {
+          "n_nodes": 2233,
+          "E_GPa": 129.00004644069116,
+          "nu": 0.3399998799117476,
+          "relative_residual": 1.481277968459866e-05
+        },
+        "dielectric_base": {
+          "n_nodes": 505,
+          "E_GPa": 73.00000390752047,
+          "nu": 0.1699999457731466,
+          "relative_residual": 2.1765957840926955e-05
+        },
+        "dielectric_annulus": {
+          "n_nodes": 1601,
+          "E_GPa": 73.00002085243275,
+          "nu": 0.17000049927042263,
+          "relative_residual": 1.9348057531602426e-05
+        }
+      },
+      "Cu_vm_quantiles_MPa": [
+        1.808390696980329,
+        150.72793329711791,
+        172.82481282211765,
+        179.90158241401144,
+        198.33547176186107
+      ],
+      "Cu_fraction_vm_170_to_180_MPa": 0.5378414688759516,
+      "axis_nonelastic_axial_strain": {
+        "525-750_nm": {
+          "median": 0.013751269811472093,
+          "min": 0.013522005216606469,
+          "max": 0.014011513435619707
+        },
+        "750-900_nm": {
+          "median": 0.013168112429205452,
+          "min": 0.011199653997837095,
+          "max": 0.013461333234723592
+        },
+        "900-950_nm": {
+          "median": 0.009202196323851195,
+          "min": 0.007652875214477265,
+          "max": 0.010509688868092615
+        },
+        "970-997_nm": {
+          "median": 0.00558001046391726,
+          "min": 0.005558832680250902,
+          "max": 0.005589434367088584
+        }
+      },
+      "Cu_shear_stress_over_exported_shear_strain_GPa": 48.1343207102043,
+      "exported_W_legacy_formula_relative_error": 0.618205285237574,
+      "exported_W_full_engineering_shear_formula_relative_error": 0.0,
+      "bounds_nm": {
+        "min": [
+          0.0,
+          -6.123000000000001e-14,
+          0.0
+        ],
+        "max": [
+          500.0,
+          1000.0,
+          0.0
+        ]
+      },
+      "rows": 7051,
+      "duplicate_node_ids": 221,
+      "duplicate_coordinates": 247,
+      "bottom_max_abs_uz_nm": 0.0,
+      "outer_max_abs_uz_nm": 0.86594,
+      "Cu_top_axis_residual": {
+        "n_intervals": 5,
+        "median": 0.005563026015037973,
+        "min": 0.005558832680250902,
+        "max": 0.005589350113207577
+      },
+      "base_axis_residual": {
+        "n_intervals": 18,
+        "median": 0.00018653282809879076,
+        "min": 0.00017164021121040098,
+        "max": 0.00020366856287425085
+      },
+      "dielectric_outer_residual": {
+        "n_intervals": 18,
+        "median": 0.00018599588050949957,
+        "min": 0.0001787205844155863,
+        "max": 0.00019100971694298524
+      },
+      "coincident_coordinate_groups_1e_5_nm_tolerance": 247,
+      "interface_displacement_jumps_nm": {
+        "base": {
+          "n_groups": 27,
+          "max": 0.0063659999999999975,
+          "median": 0.004017000000000003
+        },
+        "side": {
+          "n_groups": 221,
+          "max": 0.0,
+          "median": 0.0
+        }
+      }
+    }
+  },
+  "mesh_convergence": {
+    "40": {
+      "solve_time_s": 0.23884291702415794,
+      "W_max_J_m3": 2792220.74150237,
+      "W_mean_J_m3": 537570.509009921,
+      "UY_center_nm": 2.19061931045176,
+      "UY_edge_nm": 1.5328931706335633,
+      "dielectric_edge_UY_nm": 1.5326265703623891,
+      "relative_edge_height_nm": -3.499733399728461,
+      "residual_void_E_Pa": 1000.0,
+      "surface_error_nm": {
+        "rmse": 0.5192358470396092,
+        "relative_l2": 0.21138529799286235,
+        "max_abs_error": 0.6306806895482402
+      }
+    },
+    "80": {
+      "solve_time_s": 0.6538384580053389,
+      "W_max_J_m3": 3512452.3220509314,
+      "W_mean_J_m3": 535501.022435075,
+      "UY_center_nm": 2.1918882904272268,
+      "UY_edge_nm": 1.5302091087040308,
+      "dielectric_edge_UY_nm": 1.5281098877196484,
+      "relative_edge_height_nm": -3.4979007790152123,
+      "residual_void_E_Pa": 1000.0,
+      "surface_error_nm": {
+        "rmse": 0.5174450040612518,
+        "relative_l2": 0.21065623069368256,
+        "max_abs_error": 0.6294117095727736
+      }
+    },
+    "160": {
+      "solve_time_s": 2.1116892500431277,
+      "W_max_J_m3": 4393124.137460086,
+      "W_mean_J_m3": 534795.2284043614,
+      "UY_center_nm": 2.192245485190548,
+      "UY_edge_nm": 1.527696098054908,
+      "dielectric_edge_UY_nm": 1.5226722562342072,
+      "relative_edge_height_nm": -3.4949761581789014,
+      "residual_void_E_Pa": 1000.0,
+      "surface_error_nm": {
+        "rmse": 0.5169067227600901,
+        "relative_l2": 0.2104370918304881,
+        "max_abs_error": 0.6290545148094524
+      }
+    }
+  },
+  "boundary_sensitivity": {
+    "bottom_radial_free": {
+      "solve_time_s": 0.2469685830292292,
+      "W_max_J_m3": 2792808.96651356,
+      "W_mean_J_m3": 537617.4000986755,
+      "UY_center_nm": 2.1905514427946535,
+      "UY_edge_nm": 1.5328529921003058,
+      "dielectric_edge_UY_nm": 1.5325864795812099,
+      "relative_edge_height_nm": -3.49973348748056,
+      "residual_void_E_Pa": 1000.0,
+      "surface_error_nm": {
+        "rmse": 0.5192902401589841,
+        "relative_l2": 0.21140744189107996,
+        "max_abs_error": 0.6307485572053468
+      }
+    },
+    "outer_radial_free": {
+      "solve_time_s": 0.2492836249875836,
+      "W_max_J_m3": 2192436.271139878,
+      "W_mean_J_m3": 276188.99582544644,
+      "UY_center_nm": 1.8676879968552182,
+      "UY_edge_nm": 1.2069594148995024,
+      "dielectric_edge_UY_nm": 1.2046712634816479,
+      "relative_edge_height_nm": -3.497711848581807,
+      "residual_void_E_Pa": 1000.0,
+      "surface_error_nm": {
+        "rmse": 0.8345687468200225,
+        "relative_l2": 0.33975998430752125,
+        "max_abs_error": 0.9536120031447821
+      }
+    },
+    "both_radial_free": {
+      "solve_time_s": 0.21922858303878456,
+      "W_max_J_m3": 2193553.54482079,
+      "W_mean_J_m3": 276004.60761049495,
+      "UY_center_nm": 1.8590056320888817,
+      "UY_edge_nm": 1.19885692914679,
+      "dielectric_edge_UY_nm": 1.1965721607497095,
+      "relative_edge_height_nm": -3.4977152316025384,
+      "residual_void_E_Pa": 1000.0,
+      "surface_error_nm": {
+        "rmse": 0.8428303822323703,
+        "relative_l2": 0.34312336584888525,
+        "max_abs_error": 0.9622943679111187
+      }
+    }
+  },
+  "solver_checks": {
+    "homogeneous_radial_confinement": {
+      "passed": true,
+      "max_dimless_displacement_error": 8.396061623727746e-16
+    },
+    "zero_recess_geometry": {
+      "passed": true,
+      "solve_time_s": 0.17397887504193932,
+      "W_max_J_m3": 1881663.5660396758,
+      "W_mean_J_m3": 549542.8524835969,
+      "UY_center_nm": 2.1868036303309095,
+      "UY_edge_nm": 1.5468246946571134,
+      "dielectric_edge_UY_nm": 1.5468246946571134,
+      "relative_edge_height_nm": 5.399326818977812e-14,
+      "residual_void_E_Pa": 1000.0
+    },
+    "energy_export_definition": {
+      "passed": true,
+      "definition": "full Cu-localized elastic energy"
+    }
+  },
+  "temperature_series_conditional_fit": {
+    "files": [
+      "200_500nm_3.5.csv",
+      "250C_500nm_3.5recess.csv",
+      "300_500nm_3.5.csv",
+      "350_500nm_3.5.csv"
+    ],
+    "nominal_temperature_C": [
+      200.0,
+      250.0,
+      300.0,
+      350.0
+    ],
+    "apparent_thermal_strain": [
+      0.0030242521630094487,
+      0.0038848612382446036,
+      0.0047269026478149135,
+      0.005563026015037973
+    ],
+    "alpha_per_K": 1.6916725931311786e-05,
+    "implied_reference_C": 20.827855018437766,
+    "strain_rmse": 6.282677031275097e-06,
+    "caveat": "Assumes same material, filename temperatures are solved temperatures, and negligible inelastic strain in top-axis intervals."
+  },
+  "unavailable_checks": [
+    "No ANSYS project/result files found in repository",
+    "CSV does not contain total strain, plastic strain, temperature, radial displacement, or result-time metadata",
+    "Assigned material law and load-step settings cannot be inspected from these CSVs"
+  ]
+}

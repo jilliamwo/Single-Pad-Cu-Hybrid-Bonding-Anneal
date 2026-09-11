@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "ranks_compared": [
+    1,
+    2
+  ],
+  "mesh": [
+    12,
+    26
+  ],
+  "max_abs_Cu_surface_difference_m": 2.117582368135751e-22,
+  "max_abs_Cu_uz_difference_nm": 2.0679515313825692e-14,
+  "statistics_equal_except_timing": true,
+  "MPI_analytic_checks_passed": true
+}

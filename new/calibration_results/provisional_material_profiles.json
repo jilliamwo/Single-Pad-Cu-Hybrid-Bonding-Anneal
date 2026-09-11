@@ -1,0 +1,131 @@
+{
+  "PolyimideA": {
+    "status": "provisional_single_temperature_joint_fit",
+    "source_csv": "250_500nm_3.5_PolyimideA.csv",
+    "calibration_temperature_C": 250.0,
+    "T_ref_K_assumed": 295.15,
+    "temperature_transfer_validated": false,
+    "mesh_resolution": [
+      160,
+      322
+    ],
+    "Cu": {
+      "E_Pa": 117000000000.0,
+      "nu": 0.3,
+      "alpha_1_K": 1.7485586971939904e-05
+    },
+    "dielectric": {
+      "E_Pa": 1700000000.0,
+      "nu": 0.34,
+      "alpha_1_K": 5.481194821976377e-05
+    },
+    "holdout_metrics": {
+      "surface_holdout_nm": {
+        "rmse": 0.0087485608668412,
+        "relative_l2": 0.0005052242333732127,
+        "max_abs_error": 0.009682304866711178
+      },
+      "interior_holdout_uz_nm": {
+        "rmse": 0.03986693637124932,
+        "relative_l2": 0.0024676773393075453,
+        "max_abs_error": 0.10076546291038202
+      },
+      "interior_holdout_stress_MPa": {
+        "rmse": 1.6042377314456664,
+        "relative_l2": 0.035371171280612956,
+        "max_abs_error": 24.61861108638604
+      },
+      "Cu_holdout_W_J_m3": {
+        "rmse": 2148.8132770417837,
+        "relative_l2": 0.04017190224617842,
+        "max_abs_error": 25511.203429102432
+      }
+    }
+  },
+  "PolyimideB": {
+    "status": "provisional_single_temperature_joint_fit",
+    "source_csv": "250_500nm_3.5_PolyimideB.csv",
+    "calibration_temperature_C": 250.0,
+    "T_ref_K_assumed": 295.15,
+    "temperature_transfer_validated": false,
+    "mesh_resolution": [
+      160,
+      322
+    ],
+    "Cu": {
+      "E_Pa": 117000000000.0,
+      "nu": 0.3,
+      "alpha_1_K": 1.7166494015798255e-05
+    },
+    "dielectric": {
+      "E_Pa": 3200000000.0,
+      "nu": 0.34,
+      "alpha_1_K": 2.2935068813265317e-05
+    },
+    "holdout_metrics": {
+      "surface_holdout_nm": {
+        "rmse": 0.0036132882641398494,
+        "relative_l2": 0.0004340500727466946,
+        "max_abs_error": 0.0039608947298983566
+      },
+      "interior_holdout_uz_nm": {
+        "rmse": 0.014496060733806345,
+        "relative_l2": 0.001989128504406991,
+        "max_abs_error": 0.04370918252676348
+      },
+      "interior_holdout_stress_MPa": {
+        "rmse": 1.0210143100697429,
+        "relative_l2": 0.028129114140283327,
+        "max_abs_error": 18.203363025113646
+      },
+      "Cu_holdout_W_J_m3": {
+        "rmse": 1034.3502481722574,
+        "relative_l2": 0.03158384009020515,
+        "max_abs_error": 13127.157449840925
+      }
+    }
+  },
+  "SiCOH": {
+    "status": "provisional_single_temperature_joint_fit",
+    "source_csv": "250_500nm_3.5_SiCOH.csv",
+    "calibration_temperature_C": 250.0,
+    "T_ref_K_assumed": 295.15,
+    "temperature_transfer_validated": false,
+    "mesh_resolution": [
+      160,
+      322
+    ],
+    "Cu": {
+      "E_Pa": 129000000000.0,
+      "nu": 0.34,
+      "alpha_1_K": 1.7031455025513342e-05
+    },
+    "dielectric": {
+      "E_Pa": 6000000000.0,
+      "nu": 0.22,
+      "alpha_1_K": 1.1969528388931127e-05
+    },
+    "holdout_metrics": {
+      "surface_holdout_nm": {
+        "rmse": 0.004149591784342023,
+        "relative_l2": 0.0009451265858151292,
+        "max_abs_error": 0.004555658691699271
+      },
+      "interior_holdout_uz_nm": {
+        "rmse": 0.006097387128186161,
+        "relative_l2": 0.0017888184428275563,
+        "max_abs_error": 0.010729784844714985
+      },
+      "interior_holdout_stress_MPa": {
+        "rmse": 0.6492678564935623,
+        "relative_l2": 0.01950399693053633,
+        "max_abs_error": 14.230337801959958
+      },
+      "Cu_holdout_W_J_m3": {
+        "rmse": 619.5378988769648,
+        "relative_l2": 0.03220895791046434,
+        "max_abs_error": 10342.082731883303
+      }
+    }
+  }
+}

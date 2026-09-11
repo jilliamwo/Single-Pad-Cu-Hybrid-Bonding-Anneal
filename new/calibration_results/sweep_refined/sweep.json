@@ -1,0 +1,592 @@
+{
+  "resolution": 160,
+  "cases": {
+    "250_500nm_3.5_PolyimideA.csv": {
+      "temperature_C_from_filename": 250.0,
+      "Cu_E_Pa": 117000000000.0,
+      "Cu_nu": 0.3,
+      "dielectric_E_Pa": 1700000000.0,
+      "dielectric_nu": 0.34,
+      "residual_void_E_Pa": 1000.0,
+      "ansys_center_uz_nm": 17.239,
+      "suspect_material_units": false,
+      "outer_ur_fixed": true,
+      "surface_basis_condition_number": 298.111806703099,
+      "joint_basis_condition_number": 3.1043250175742663,
+      "candidates": {
+        "export_thermal_estimate": {
+          "theta_Cu": 0.003893019746835604,
+          "theta_dielectric": 0.012548,
+          "alpha_Cu_if_Tref22_per_K": 1.7074648012436858e-05,
+          "alpha_dielectric_if_Tref22_per_K": 5.5035087719298246e-05,
+          "center_uz_nm": 17.250557475380653,
+          "surface_holdout_nm": {
+            "rmse": 0.01280149956266091,
+            "relative_l2": 0.0007392790541226595,
+            "max_abs_error": 0.017066977470481248
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.011647147680039173,
+            "relative_l2": 0.0007209333099979169,
+            "max_abs_error": 0.08734661624326012
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 1.6241090226594872,
+            "relative_l2": 0.035809305125312885,
+            "max_abs_error": 25.24842402505925
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 2282.198660034794,
+            "relative_l2": 0.042665531927227766,
+            "max_abs_error": 26305.040704836763
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 1.9472698057871956,
+              "relative_l2": 0.035500419143311555,
+              "max_abs_error": 25.24842402505925
+            },
+            "SiO2_base": {
+              "rmse": 0.792154023868561,
+              "relative_l2": 0.034326423379704214,
+              "max_abs_error": 8.96573107860435
+            },
+            "SiO2_annulus": {
+              "rmse": 1.3341342573509098,
+              "relative_l2": 0.036819528206842894,
+              "max_abs_error": 15.948278245917633
+            }
+          }
+        },
+        "surface_fit": {
+          "theta_Cu": 0.004094516883087062,
+          "theta_dielectric": 0.01246550024379569,
+          "alpha_Cu_if_Tref22_per_K": 1.79584073819608e-05,
+          "alpha_dielectric_if_Tref22_per_K": 5.4673246683314424e-05,
+          "center_uz_nm": 17.23902631830095,
+          "surface_holdout_nm": {
+            "rmse": 0.0006927652408946273,
+            "relative_l2": 4.000678432325642e-05,
+            "max_abs_error": 0.002631268499484918
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.05999355230529953,
+            "relative_l2": 0.0037134714378282245,
+            "max_abs_error": 0.10925984634353814
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 1.6172706430526256,
+            "relative_l2": 0.03565852853427847,
+            "max_abs_error": 24.187332394488095
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 2101.789967713162,
+            "relative_l2": 0.0392928050226906,
+            "max_abs_error": 25127.27698427881
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 1.9211626921244405,
+              "relative_l2": 0.035024463795523875,
+              "max_abs_error": 24.187332394488095
+            },
+            "SiO2_base": {
+              "rmse": 0.829142776698451,
+              "relative_l2": 0.03592925761606317,
+              "max_abs_error": 9.499291231040232
+            },
+            "SiO2_annulus": {
+              "rmse": 1.353344006407648,
+              "relative_l2": 0.037349680171192695,
+              "max_abs_error": 15.544091244193828
+            }
+          }
+        },
+        "surface_nonnegative": {
+          "theta_Cu": 0.004094516883087062,
+          "theta_dielectric": 0.01246550024379569,
+          "alpha_Cu_if_Tref22_per_K": 1.79584073819608e-05,
+          "alpha_dielectric_if_Tref22_per_K": 5.4673246683314424e-05,
+          "center_uz_nm": 17.23902631830095,
+          "surface_holdout_nm": {
+            "rmse": 0.0006927652408946273,
+            "relative_l2": 4.000678432325642e-05,
+            "max_abs_error": 0.002631268499484918
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.05999355230529953,
+            "relative_l2": 0.0037134714378282245,
+            "max_abs_error": 0.10925984634353814
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 1.6172706430526256,
+            "relative_l2": 0.03565852853427847,
+            "max_abs_error": 24.187332394488095
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 2101.789967713162,
+            "relative_l2": 0.0392928050226906,
+            "max_abs_error": 25127.27698427881
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 1.9211626921244405,
+              "relative_l2": 0.035024463795523875,
+              "max_abs_error": 24.187332394488095
+            },
+            "SiO2_base": {
+              "rmse": 0.829142776698451,
+              "relative_l2": 0.03592925761606317,
+              "max_abs_error": 9.499291231040232
+            },
+            "SiO2_annulus": {
+              "rmse": 1.353344006407648,
+              "relative_l2": 0.037349680171192695,
+              "max_abs_error": 15.544091244193828
+            }
+          }
+        },
+        "joint_nonnegative": {
+          "theta_Cu": 0.0039867138296022986,
+          "theta_dielectric": 0.01249712419410614,
+          "alpha_Cu_if_Tref22_per_K": 1.7485586971939904e-05,
+          "alpha_dielectric_if_Tref22_per_K": 5.481194821976377e-05,
+          "center_uz_nm": 17.229733350428383,
+          "surface_holdout_nm": {
+            "rmse": 0.0087485608668412,
+            "relative_l2": 0.0005052242333732127,
+            "max_abs_error": 0.009682304866711178
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.03986693637124932,
+            "relative_l2": 0.0024676773393075453,
+            "max_abs_error": 0.10076546291038202
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 1.6042377314456664,
+            "relative_l2": 0.035371171280612956,
+            "max_abs_error": 24.61861108638604
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 2148.8132770417837,
+            "relative_l2": 0.04017190224617842,
+            "max_abs_error": 25511.203429102432
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 1.9112454637402363,
+              "relative_l2": 0.03484366411212465,
+              "max_abs_error": 24.61861108638604
+            },
+            "SiO2_base": {
+              "rmse": 0.8051162277516383,
+              "relative_l2": 0.034888114774329244,
+              "max_abs_error": 9.265234207452721
+            },
+            "SiO2_annulus": {
+              "rmse": 1.3356413165055858,
+              "relative_l2": 0.036861120128157586,
+              "max_abs_error": 15.728799781692862
+            }
+          }
+        }
+      },
+      "promoted_to_solver_defaults": false
+    },
+    "250_500nm_3.5_PolyimideB.csv": {
+      "temperature_C_from_filename": 250.0,
+      "Cu_E_Pa": 117000000000.0,
+      "Cu_nu": 0.3,
+      "dielectric_E_Pa": 3200000000.0,
+      "dielectric_nu": 0.34,
+      "residual_void_E_Pa": 1000.0,
+      "ansys_center_uz_nm": 8.2775,
+      "suspect_material_units": false,
+      "outer_ur_fixed": true,
+      "surface_basis_condition_number": 166.89449625813901,
+      "joint_basis_condition_number": 3.0119855329061758,
+      "candidates": {
+        "export_thermal_estimate": {
+          "theta_Cu": 0.003879803711339958,
+          "theta_dielectric": 0.0052494,
+          "alpha_Cu_if_Tref22_per_K": 1.70166829444735e-05,
+          "alpha_dielectric_if_Tref22_per_K": 2.3023684210526316e-05,
+          "center_uz_nm": 8.283404881967616,
+          "surface_holdout_nm": {
+            "rmse": 0.006608698930567199,
+            "relative_l2": 0.000793876945839678,
+            "max_abs_error": 0.009143474367578008
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.0060450836523106115,
+            "relative_l2": 0.000829497642507352,
+            "max_abs_error": 0.038352841232698776
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 1.0361197788206424,
+            "relative_l2": 0.028545272317936608,
+            "max_abs_error": 18.648489225893584
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 1102.7237575412983,
+            "relative_l2": 0.03367162224149662,
+            "max_abs_error": 13498.291499425199
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 1.2719334539379108,
+              "relative_l2": 0.02890543833474387,
+              "max_abs_error": 18.648489225893584
+            },
+            "SiO2_base": {
+              "rmse": 0.5081640797045741,
+              "relative_l2": 0.028820342802636567,
+              "max_abs_error": 5.796433028086792
+            },
+            "SiO2_annulus": {
+              "rmse": 0.7952655821186044,
+              "relative_l2": 0.027472403509797853,
+              "max_abs_error": 9.681792141884387
+            }
+          }
+        },
+        "surface_fit": {
+          "theta_Cu": 0.003952156841641207,
+          "theta_dielectric": 0.005218503888207103,
+          "alpha_Cu_if_Tref22_per_K": 1.7334021235268454e-05,
+          "alpha_dielectric_if_Tref22_per_K": 2.2888174948276767e-05,
+          "center_uz_nm": 8.27766680298459,
+          "surface_holdout_nm": {
+            "rmse": 0.00039713795045530077,
+            "relative_l2": 4.770661615801953e-05,
+            "max_abs_error": 0.001479437398568706
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.021050385539286842,
+            "relative_l2": 0.002888503482004766,
+            "max_abs_error": 0.046340978910510255
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 1.0301759046883132,
+            "relative_l2": 0.02838151759652399,
+            "max_abs_error": 17.92799386633196
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 1017.6951918215577,
+            "relative_l2": 0.031075278664901333,
+            "max_abs_error": 13012.277481772406
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 1.2521206863532832,
+              "relative_l2": 0.028455181499462908,
+              "max_abs_error": 17.92799386633196
+            },
+            "SiO2_base": {
+              "rmse": 0.5405012263541561,
+              "relative_l2": 0.0306543324310296,
+              "max_abs_error": 6.155441028060956
+            },
+            "SiO2_annulus": {
+              "rmse": 0.8084461094908156,
+              "relative_l2": 0.027927724065072823,
+              "max_abs_error": 9.419986417009431
+            }
+          }
+        },
+        "surface_nonnegative": {
+          "theta_Cu": 0.003952156841641207,
+          "theta_dielectric": 0.005218503888207103,
+          "alpha_Cu_if_Tref22_per_K": 1.7334021235268454e-05,
+          "alpha_dielectric_if_Tref22_per_K": 2.2888174948276767e-05,
+          "center_uz_nm": 8.27766680298459,
+          "surface_holdout_nm": {
+            "rmse": 0.00039713795045530077,
+            "relative_l2": 4.770661615801953e-05,
+            "max_abs_error": 0.001479437398568706
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.021050385539286842,
+            "relative_l2": 0.002888503482004766,
+            "max_abs_error": 0.046340978910510255
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 1.0301759046883132,
+            "relative_l2": 0.02838151759652399,
+            "max_abs_error": 17.92799386633196
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 1017.6951918215577,
+            "relative_l2": 0.031075278664901333,
+            "max_abs_error": 13012.277481772406
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 1.2521206863532832,
+              "relative_l2": 0.028455181499462908,
+              "max_abs_error": 17.92799386633196
+            },
+            "SiO2_base": {
+              "rmse": 0.5405012263541561,
+              "relative_l2": 0.0306543324310296,
+              "max_abs_error": 6.155441028060956
+            },
+            "SiO2_annulus": {
+              "rmse": 0.8084461094908156,
+              "relative_l2": 0.027927724065072823,
+              "max_abs_error": 9.419986417009431
+            }
+          }
+        },
+        "joint_nonnegative": {
+          "theta_Cu": 0.003913960635602002,
+          "theta_dielectric": 0.005229195689424492,
+          "alpha_Cu_if_Tref22_per_K": 1.7166494015798255e-05,
+          "alpha_dielectric_if_Tref22_per_K": 2.2935068813265317e-05,
+          "center_uz_nm": 8.273706498126879,
+          "surface_holdout_nm": {
+            "rmse": 0.0036132882641398494,
+            "relative_l2": 0.0004340500727466946,
+            "max_abs_error": 0.0039608947298983566
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.014496060733806345,
+            "relative_l2": 0.001989128504406991,
+            "max_abs_error": 0.04370918252676348
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 1.0210143100697429,
+            "relative_l2": 0.028129114140283327,
+            "max_abs_error": 18.203363025113646
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 1034.3502481722574,
+            "relative_l2": 0.03158384009020515,
+            "max_abs_error": 13127.157449840925
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 1.2451300197717519,
+              "relative_l2": 0.028296314476061957,
+              "max_abs_error": 18.203363025113646
+            },
+            "SiO2_base": {
+              "rmse": 0.5210326422269895,
+              "relative_l2": 0.029550178692431817,
+              "max_abs_error": 6.006344616534996
+            },
+            "SiO2_annulus": {
+              "rmse": 0.7960381735040928,
+              "relative_l2": 0.027499092634497277,
+              "max_abs_error": 9.533708470381681
+            }
+          }
+        }
+      },
+      "promoted_to_solver_defaults": false
+    },
+    "250_500nm_3.5_SiCOH.csv": {
+      "temperature_C_from_filename": 250.0,
+      "Cu_E_Pa": 129000000000.0,
+      "Cu_nu": 0.34,
+      "dielectric_E_Pa": 6000000000.0,
+      "dielectric_nu": 0.22,
+      "residual_void_E_Pa": 1000.0,
+      "ansys_center_uz_nm": 4.3859,
+      "suspect_material_units": false,
+      "outer_ur_fixed": true,
+      "surface_basis_condition_number": 83.98342536357889,
+      "joint_basis_condition_number": 2.1017057268697426,
+      "candidates": {
+        "export_thermal_estimate": {
+          "theta_Cu": 0.0038711027319585875,
+          "theta_dielectric": 0.0027408,
+          "alpha_Cu_if_Tref22_per_K": 1.697852075420433e-05,
+          "alpha_dielectric_if_Tref22_per_K": 1.2021052631578946e-05,
+          "center_uz_nm": 4.3875009229070105,
+          "surface_holdout_nm": {
+            "rmse": 0.0018751929155703237,
+            "relative_l2": 0.0004271009704437036,
+            "max_abs_error": 0.002735883034204356
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.0027352894350350637,
+            "relative_l2": 0.0008024644138542061,
+            "max_abs_error": 0.007543141828399769
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 0.668841064251874,
+            "relative_l2": 0.020091975805850704,
+            "max_abs_error": 14.572235694110123
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 629.2737704709165,
+            "relative_l2": 0.032715113028593035,
+            "max_abs_error": 10230.099040045709
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 0.8797906361397267,
+              "relative_l2": 0.021715833469546,
+              "max_abs_error": 14.572235694110123
+            },
+            "SiO2_base": {
+              "rmse": 0.5481578271195842,
+              "relative_l2": 0.03787646026267342,
+              "max_abs_error": 5.1964264642946425
+            },
+            "SiO2_annulus": {
+              "rmse": 0.19538805898098666,
+              "relative_l2": 0.007672906556997468,
+              "max_abs_error": 2.195209224410566
+            }
+          }
+        },
+        "surface_fit": {
+          "theta_Cu": 0.003890725605450945,
+          "theta_dielectric": 0.002729847449995247,
+          "alpha_Cu_if_Tref22_per_K": 1.7064585988819935e-05,
+          "alpha_dielectric_if_Tref22_per_K": 1.1973015131558101e-05,
+          "center_uz_nm": 4.385970122674079,
+          "surface_holdout_nm": {
+            "rmse": 0.0001343623787025779,
+            "relative_l2": 3.0602879233650414e-05,
+            "max_abs_error": 0.0004983570077348176
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.004312757419257408,
+            "relative_l2": 0.001265253435417671,
+            "max_abs_error": 0.010291543535625891
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 0.6517572187234745,
+            "relative_l2": 0.01957877733558119,
+            "max_abs_error": 14.198679519190424
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 642.3173978082774,
+            "relative_l2": 0.03339323400338795,
+            "max_abs_error": 10520.89497429238
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 0.8490319462268509,
+              "relative_l2": 0.0209566180830079,
+              "max_abs_error": 14.198679519190424
+            },
+            "SiO2_base": {
+              "rmse": 0.5804439897060476,
+              "relative_l2": 0.04010736073282872,
+              "max_abs_error": 5.200461102409694
+            },
+            "SiO2_annulus": {
+              "rmse": 0.19918291464000148,
+              "relative_l2": 0.007821930878241927,
+              "max_abs_error": 2.057291215330289
+            }
+          }
+        },
+        "surface_nonnegative": {
+          "theta_Cu": 0.003890725605450945,
+          "theta_dielectric": 0.002729847449995247,
+          "alpha_Cu_if_Tref22_per_K": 1.7064585988819935e-05,
+          "alpha_dielectric_if_Tref22_per_K": 1.1973015131558101e-05,
+          "center_uz_nm": 4.385970122674079,
+          "surface_holdout_nm": {
+            "rmse": 0.0001343623787025779,
+            "relative_l2": 3.0602879233650414e-05,
+            "max_abs_error": 0.0004983570077348176
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.004312757419257408,
+            "relative_l2": 0.001265253435417671,
+            "max_abs_error": 0.010291543535625891
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 0.6517572187234745,
+            "relative_l2": 0.01957877733558119,
+            "max_abs_error": 14.198679519190424
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 642.3173978082774,
+            "relative_l2": 0.03339323400338795,
+            "max_abs_error": 10520.89497429238
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 0.8490319462268509,
+              "relative_l2": 0.0209566180830079,
+              "max_abs_error": 14.198679519190424
+            },
+            "SiO2_base": {
+              "rmse": 0.5804439897060476,
+              "relative_l2": 0.04010736073282872,
+              "max_abs_error": 5.200461102409694
+            },
+            "SiO2_annulus": {
+              "rmse": 0.19918291464000148,
+              "relative_l2": 0.007821930878241927,
+              "max_abs_error": 2.057291215330289
+            }
+          }
+        },
+        "joint_nonnegative": {
+          "theta_Cu": 0.0038831717458170417,
+          "theta_dielectric": 0.002729052472676297,
+          "alpha_Cu_if_Tref22_per_K": 1.7031455025513342e-05,
+          "alpha_dielectric_if_Tref22_per_K": 1.1969528388931127e-05,
+          "center_uz_nm": 4.381764946086733,
+          "surface_holdout_nm": {
+            "rmse": 0.004149591784342023,
+            "relative_l2": 0.0009451265858151292,
+            "max_abs_error": 0.004555658691699271
+          },
+          "interior_holdout_uz_nm": {
+            "rmse": 0.006097387128186161,
+            "relative_l2": 0.0017888184428275563,
+            "max_abs_error": 0.010729784844714985
+          },
+          "interior_holdout_stress_MPa": {
+            "rmse": 0.6492678564935623,
+            "relative_l2": 0.01950399693053633,
+            "max_abs_error": 14.230337801959958
+          },
+          "Cu_holdout_W_J_m3": {
+            "rmse": 619.5378988769648,
+            "relative_l2": 0.03220895791046434,
+            "max_abs_error": 10342.082731883303
+          },
+          "stress_holdout_by_region": {
+            "Cu": {
+              "rmse": 0.8470200340863857,
+              "relative_l2": 0.020906958144378183,
+              "max_abs_error": 14.230337801959958
+            },
+            "SiO2_base": {
+              "rmse": 0.5707311857896499,
+              "relative_l2": 0.03943622805282722,
+              "max_abs_error": 5.164028814471347
+            },
+            "SiO2_annulus": {
+              "rmse": 0.1979541092918642,
+              "relative_l2": 0.007773675582282855,
+              "max_abs_error": 2.087001895968567
+            }
+          }
+        }
+      },
+      "promoted_to_solver_defaults": false
+    }
+  },
+  "temperature_transfer": {},
+  "defaults_changed": false,
+  "notes": [
+    "Case-specific constants inferred from exports; no invented dielectric CTE tables.",
+    "Only thermal strains are identifiable per case; quoted CTEs assume 22 C reference.",
+    "Spatial holdouts are from the same run; temperature transfer holds out whole files.",
+    "Temperature labels and common geometry assumed; temperature fields unavailable.",
+    "Interior objective balances relative displacement and stress norms globally.",
+    "DG0 cell energy/stress compared to nodal exports; peaks remain mesh sensitive.",
+    "Diamond case is diagnostic only and excluded from physical calibration."
+  ]
+}
