@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "mpi_ranks": 2,
+  "material_point_uniaxial_history": [
+    {
+      "axial_strain": 0.0005,
+      "stress_Pa": 64499999.99999999,
+      "equivalent_plastic_strain": 0.0
+    },
+    {
+      "axial_strain": 0.002,
+      "stress_Pa": 172643464.34108526,
+      "equivalent_plastic_strain": 0.0006616785709993389
+    },
+    {
+      "axial_strain": 0.004,
+      "stress_Pa": 173677464.34108526,
+      "equivalent_plastic_strain": 0.00265366306712337
+    },
+    {
+      "axial_strain": 0.007,
+      "stress_Pa": 175228464.34108508,
+      "equivalent_plastic_strain": 0.005641639811309418
+    }
+  ],
+  "checks": [
+    "uniaxial bilinear law",
+    "stress-free unloading with residual plastic strain",
+    "elastic-limit displacement and energy",
+    "yield consistency",
+    "isochoric symmetric plastic strain",
+    "nonnegative elastic energy",
+    "history snapshot/restore",
+    "thermal unloading history"
+  ],
+  "center_uz_20_steps_nm": 2.6706669344327163,
+  "center_uz_40_steps_nm": 2.6700651712835017,
+  "load_step_change_nm": 0.0006017631492145625,
+  "cooling_residual_center_uz_nm": 0.5158907255971499
+}

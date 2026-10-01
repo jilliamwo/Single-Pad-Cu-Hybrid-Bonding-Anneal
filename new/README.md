@@ -1,8 +1,9 @@
 # Native thermoelastic baseline
 
-`thermoelastic_solver.py` solves small-strain, axisymmetric elasticity with
-uniform anneal temperature using FEniCSx 0.10.0. ANSYS parity is not established.
-The existing Stage 15 code under `old/` has not been changed.
+`thermoelastic_solver.py` solves small-strain, axisymmetric elasticity or optional
+J2 plasticity with prescribed thermal loading using FEniCSx 0.10.0. ANSYS parity is not established.
+The archived phase-field code under `old/` is preserved for provenance.
+For the active coupled model and terminal workflow, see [RUNNING_THE_MODEL.md](../RUNNING_THE_MODEL.md).
 
 ## Reference geometry and constraints
 
@@ -45,10 +46,10 @@ invariance, and homogeneous analytic free expansion with negligible stress.
 
 ## API and limitations
 
-`solve` requires an explicit `geometry` and the full mechanics mesh. The old
-Cu-only Stage 15 mesh does not contain the dielectric and cannot be substituted.
-A future coupling layer must transfer fields with the explicit coordinate map
-z_stage15 = z_reference - base_thickness/L0.
+`solve` requires an explicit `geometry` and the full mechanics mesh. The
+Cu-only phase-field mesh does not contain the dielectric and cannot be substituted.
+`static_coupling.py` transfers fields using the explicit coordinate map
+z_phase = z_reference - base_thickness/L0.
 
 `u_dimless_field` and `UY_dimless` are normalized by L0; `u_field` is in metres.
 `cu_surface_m` and `dielectric_surface_m` contain deformed physical (r,z).
@@ -105,8 +106,9 @@ The default Cu constants are now 129 GPa and 0.34. With these values, the
 2.190619 nm, edge uz = 1.532893 nm, and ANSYS surface RMSE = 0.520676 nm.
 Thus the elastic-constant correction does not resolve the mismatch. Thermal
 expansion and stress-free temperature are not determined by this stress/elastic-
-strain fit and remain provisional. Plasticity and creep are inactive in the
-user's ANSYS baseline and in this solver.
+strain fit and remain provisional. Those comparisons used the elastic native
+solver. The actual ANSYS material-law settings remain unverified; optional
+plasticity has since been added as described below. Creep remains unimplemented.
 
 ## Calibration audit
 
@@ -133,3 +135,31 @@ assume a 22 C reference and have only been checked at 250 C. The SiO2 thermal
 calibration does not transfer accurately through 350 C. The older unlabeled
 250 C export shows evidence of different outer-boundary behavior and is tested
 separately. Run `calibrate_sweep.py --help` for the sweep and diagnostic options.
+
+## Optional plasticity
+
+The [plasticity report](calibration_results/plasticity/REPORT.md) documents the
+new Cu J2 model and direct comparisons across all 11 ANSYS exports. The default
+solver remains elastic; enable the material-sheet Cu law explicitly:
+
+```python
+from plasticity import BilinearPlasticity
+# Supply all existing mesh/material/geometry arguments as before.
+result = solve(..., plasticity_cu=BilinearPlasticity(), load_steps=40)
+```
+
+Defaults in `BilinearPlasticity` are yield=172.3 MPa and uniaxial tangent
+modulus=517 MPa. Calibration runs explicitly assume a 22 C reference and use a
+uniform, quasi-static thermal ramp. This does not reconstruct the ANSYS transient
+thermal field or add inertia/creep. Dielectrics remain elastic unless a separate,
+justified `plasticity_dielectric` law is supplied.
+
+Plastic strains are stored at quadrature points; nonlinear increments commit
+history only after convergence. Each call integrates from a virgin state and
+returns `plastic_state` plus a DG0 `equivalent_plastic_strain_field`. Repeated
+calls do not continue prior history. Evolving-phi plasticity is not supported yet.
+
+```sh
+python new/validate_plasticity.py
+python new/calibrate_plasticity.py --resolution 40 --steps 20
+```

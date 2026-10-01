@@ -2,7 +2,7 @@
 
 Coordinates and the solved displacement are divided by L0; u_field is
 converted to metres for output. The reference material map identifies the
-SiO2 base and annulus independently of phi. Elastic pre-contact baseline only.
+SiO2 base and annulus independently of phi. Elastic or optional J2 elastoplastic pre-contact mechanics.
 Stage 15 uses a different origin: z_stage15 = z_reference - base_thickness/L0.
 ANSYS parity has not yet been established.
 """
@@ -399,6 +399,8 @@ class ThermoelasticResult:
     u_dimless_field: Function
     cu_surface_m: np.ndarray
     dielectric_surface_m: np.ndarray
+    plastic_state: object = None
+    equivalent_plastic_strain_field: Optional[Function] = None
 
 
 # ---------------------------------------------------------------------------
@@ -506,13 +508,16 @@ def solve_structural(mesh, tracker, material_cu, T_field,
                      phi=None, contact_state="pre", p_contact=None,
                      surface_z_dimless=None, surface_tol_dimless=0.006,
                      *, geometry=None, material_dielectric=None,
-                     boundary_conditions=None, residual_void_E_Pa=1e3):
+                     boundary_conditions=None, residual_void_E_Pa=1e3,
+                     plasticity_cu=None, plasticity_dielectric=None, load_steps=20, load_factors=None):
     """Solve on the full base/annulus reference domain.
 
     Legacy pad_height_dimless denotes Cu thickness after recess. Explicit
     geometry is required to prevent silently treating a Cu-only mesh as the
     full mechanical domain. phi must be a scalar Function on this mesh.
     Void uses residual stiffness; this is not a contact model.
+    Optional plastic laws integrate a virgin-state thermal load path; phi-driven
+    evolving plasticity and external history continuation are not supported yet.
     W_field is Cu-localized; W_full_field retains energy in every material.
     """
     if geometry is None:
@@ -581,10 +586,27 @@ def solve_structural(mesh, tracker, material_cu, T_field,
             dofs = fem.locate_dofs_geometrical((V.sub(component), collapsed),
                 lambda points, axis=axis, value=value: np.isclose(points[axis], value))
             bcs.append(fem.dirichletbc(zero, dofs, V.sub(component)))
-    u = _linear_solve(a, L, bcs)
-    u.name = "displacement_dimless"
-    elastic = eps(u) - theta*ufl.Identity(3)
-    sigma = C(elastic)
+    plastic_state = None
+    plastic_history = []
+    if plasticity_cu is not None or plasticity_dielectric is not None:
+        if phi is not None:
+            raise NotImplementedError("Plasticity currently requires a sharp fixed reference material map")
+        if load_factors is None:
+            if not isinstance(load_steps, int) or load_steps < 1:
+                raise ValueError("load_steps must be a positive integer")
+            load_factors = np.linspace(0., 1., load_steps+1)[1:]
+        from plasticity import solve_plastic_path
+        u, elastic, sigma, plastic_state, plastic_history = solve_plastic_path(
+            V, eps, C, mu, theta, cu, dielectric_mask,
+            material_cu, dielectric, plasticity_cu, plasticity_dielectric,
+            bcs, load_factors, measure)
+    else:
+        if load_factors is not None:
+            raise ValueError("load_factors is supported only for plastic load paths")
+        u = _linear_solve(a, L, bcs)
+        u.name = "displacement_dimless"
+        elastic = eps(u) - theta*ufl.Identity(3)
+        sigma = C(elastic)
     energy = 0.5*ufl.inner(sigma, elastic)
 
     def project(expr, name):
@@ -635,17 +657,28 @@ def solve_structural(mesh, tracker, material_cu, T_field,
              "relative_edge_height_nm": float((cu_surface[-1,1]+cu_surface[-1,3]
                 -dielectric_surface[0,1]-dielectric_surface[0,3])*g.L0_nm),
              "residual_void_E_Pa": residual_void_E_Pa}
+    stats["plasticity_enabled"] = plastic_state is not None
+    if plastic_state is not None:
+        stats["plastic_load_history"] = plastic_history
+        stats["max_equivalent_plastic_strain"] = plastic_history[-1]["max_equivalent_plastic_strain"]
+    p_field = project(plastic_state.equivalent_strain, "equivalent_plastic_strain") if plastic_state is not None else None
     return ThermoelasticResult(W, cu_surface[:,3], cu_surface[:,0], physical,
                               stresses, stats, W_full, W_legacy, u,
                               (cu_surface[:,:2]+cu_surface[:,2:])*g.L0_m,
-                              (dielectric_surface[:,:2]+dielectric_surface[:,2:])*g.L0_m)
+                              (dielectric_surface[:,:2]+dielectric_surface[:,2:])*g.L0_m, plastic_state, p_field)
 
 
 def solve(phi, mesh, material_cu, T_anneal_K, L0_m, pad_radius_dimless,
           pad_height_dimless, tracker=None, contact_state="pre", p_contact=None,
           surface_z_dimless=None, steady_state_thermal=True, *, geometry=None,
-          material_dielectric=None, boundary_conditions=None, residual_void_E_Pa=1e3):
-    """Uniform-temperature baseline; full reference mechanics mesh required."""
+          material_dielectric=None, boundary_conditions=None, residual_void_E_Pa=1e3,
+                     plasticity_cu=None, plasticity_dielectric=None, load_steps=20, load_factors=None):
+    """Uniform-temperature mechanics; optional incremental J2 thermal path.
+
+    Plastic paths start from virgin material at the reference temperatures on
+    every call. load_factors scales the target thermal increment and can include
+    unloading; it does not specify elapsed time or solve transient heat flow.
+    """
     if not steady_state_thermal:
         raise NotImplementedError("Transient heating requires a validated thermal material map")
     tracker = tracker or MeshNodeTracker(mesh, L0_m)
@@ -654,7 +687,9 @@ def solve(phi, mesh, material_cu, T_anneal_K, L0_m, pad_radius_dimless,
     return solve_structural(mesh, tracker, material_cu, temperature,
         pad_radius_dimless, pad_height_dimless, L0_m, phi, contact_state,
         p_contact, surface_z_dimless, geometry=geometry, material_dielectric=dielectric,
-        boundary_conditions=boundary_conditions, residual_void_E_Pa=residual_void_E_Pa)
+        boundary_conditions=boundary_conditions, residual_void_E_Pa=residual_void_E_Pa,
+        plasticity_cu=plasticity_cu, plasticity_dielectric=plasticity_dielectric,
+        load_steps=load_steps, load_factors=load_factors)
 
 
 if __name__ == "__main__":

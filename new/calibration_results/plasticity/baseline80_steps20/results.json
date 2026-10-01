@@ -1,0 +1,269 @@
+{
+  "resolution": 80,
+  "load_steps": 20,
+  "reference_C_assumed": 22.0,
+  "yield_stress_MPa": 172.3,
+  "tangent_modulus_MPa": 517.0,
+  "thermal_path": "uniform monotonic quasi-static ramp from reference to nominal temperature",
+  "dielectric_plasticity": false,
+  "parameter_fit_to_displacement": false,
+  "cases": {
+    "250_500nm_3.5_SiO2.csv": {
+      "temperature_C": 250.0,
+      "outer_ur_fixed": true,
+      "Cu_E_Pa": 129000000000.0,
+      "Cu_nu": 0.34,
+      "dielectric_E_Pa": 73000000000.0,
+      "dielectric_nu": 0.17,
+      "Cu_alpha_1_K": 1.7e-05,
+      "dielectric_alpha_1_K": 5.5e-07,
+      "suspect_diamond_units": false,
+      "ansys_center_uz_nm": 2.8213000000000004,
+      "predictions": {
+        "elastic": {
+          "stats": {
+            "solve_time_s": 0.8213859579991549,
+            "W_max_J_m3": 3451631.7865689253,
+            "W_mean_J_m3": 526228.452746037,
+            "UY_center_nm": 2.172828392249597,
+            "UY_edge_nm": 1.5169029425413847,
+            "dielectric_edge_UY_nm": 1.5148219756525187,
+            "relative_edge_height_nm": -3.4979190331107683,
+            "residual_void_E_Pa": 1000.0,
+            "plasticity_enabled": false
+          },
+          "surface_nm": {
+            "rmse": 0.5354884085784581,
+            "relative_l2": 0.21736896331437952,
+            "max_abs_error": 0.6484716077504036
+          },
+          "interior_uz_nm": {
+            "rmse": 0.2610873065999201,
+            "relative_l2": 0.20601131794547883,
+            "max_abs_error": 0.6471612479388282
+          },
+          "interior_stress_MPa": {
+            "rmse": 43.21008619993103,
+            "relative_l2": 0.24323919901216537,
+            "max_abs_error": 236.98894921668915
+          },
+          "Cu_W_J_m3": {
+            "rmse": 178595.93408650075,
+            "relative_l2": 0.4985312129443616,
+            "max_abs_error": 1169723.1599259835
+          },
+          "stress_by_region": {
+            "Cu": {
+              "rmse": 53.01858381004594,
+              "relative_l2": 0.24214279755792736,
+              "max_abs_error": 236.98894921668915
+            },
+            "SiO2_base": {
+              "rmse": 28.069129051455846,
+              "relative_l2": 0.5433494419741272,
+              "max_abs_error": 184.80035271741488
+            },
+            "SiO2_annulus": {
+              "rmse": 29.85100527638775,
+              "relative_l2": 0.2236292678350142,
+              "max_abs_error": 107.06718634040624
+            }
+          }
+        },
+        "plastic": {
+          "stats": {
+            "solve_time_s": 28.163806415861472,
+            "W_max_J_m3": 971121.6146275471,
+            "W_mean_J_m3": 368399.7214442231,
+            "UY_center_nm": 2.7520192629336493,
+            "UY_edge_nm": 1.3659450801393889,
+            "dielectric_edge_UY_nm": 1.364123878641194,
+            "relative_edge_height_nm": -3.498178798501378,
+            "residual_void_E_Pa": 1000.0,
+            "plasticity_enabled": true,
+            "plastic_load_history": [
+              {
+                "load_factor": 0.05,
+                "newton_iterations": 1,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0,
+                "max_yield_violation_Pa": 0.0
+              },
+              {
+                "load_factor": 0.1,
+                "newton_iterations": 1,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0,
+                "max_yield_violation_Pa": 0.0
+              },
+              {
+                "load_factor": 0.15000000000000002,
+                "newton_iterations": 1,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0,
+                "max_yield_violation_Pa": 0.0
+              },
+              {
+                "load_factor": 0.2,
+                "newton_iterations": 1,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0,
+                "max_yield_violation_Pa": 0.0
+              },
+              {
+                "load_factor": 0.25,
+                "newton_iterations": 3,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.00018116458558958205,
+                "max_yield_violation_Pa": 8.949427865445614e-09
+              },
+              {
+                "load_factor": 0.30000000000000004,
+                "newton_iterations": 4,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0006981746632229542,
+                "max_yield_violation_Pa": 2.334127202630043e-08
+              },
+              {
+                "load_factor": 0.35000000000000003,
+                "newton_iterations": 4,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0014369948839061176,
+                "max_yield_violation_Pa": 6.127811502665281e-08
+              },
+              {
+                "load_factor": 0.4,
+                "newton_iterations": 4,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0022961467779538383,
+                "max_yield_violation_Pa": 7.12461769580841e-08
+              },
+              {
+                "load_factor": 0.45,
+                "newton_iterations": 4,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0032133080307620806,
+                "max_yield_violation_Pa": 7.926428224891424e-08
+              },
+              {
+                "load_factor": 0.5,
+                "newton_iterations": 4,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.004159417244648558,
+                "max_yield_violation_Pa": 1.0756775736808777e-07
+              },
+              {
+                "load_factor": 0.55,
+                "newton_iterations": 4,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.005127275434274362,
+                "max_yield_violation_Pa": 1.043081283569336e-07
+              },
+              {
+                "load_factor": 0.6000000000000001,
+                "newton_iterations": 4,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.0061103399931460006,
+                "max_yield_violation_Pa": 9.656650945544243e-08
+              },
+              {
+                "load_factor": 0.65,
+                "newton_iterations": 5,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.007099029113689731,
+                "max_yield_violation_Pa": 1.2759119272232056e-07
+              },
+              {
+                "load_factor": 0.7000000000000001,
+                "newton_iterations": 6,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.008110282460364188,
+                "max_yield_violation_Pa": 1.1688098311424255e-07
+              },
+              {
+                "load_factor": 0.75,
+                "newton_iterations": 5,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.009161312165952841,
+                "max_yield_violation_Pa": 1.7415732145309448e-07
+              },
+              {
+                "load_factor": 0.8,
+                "newton_iterations": 5,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.012369394818757457,
+                "max_yield_violation_Pa": 2.253800630569458e-07
+              },
+              {
+                "load_factor": 0.8500000000000001,
+                "newton_iterations": 5,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.018199631992625573,
+                "max_yield_violation_Pa": 3.0547380447387695e-07
+              },
+              {
+                "load_factor": 0.9,
+                "newton_iterations": 5,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.02477160499671463,
+                "max_yield_violation_Pa": 3.501772880554199e-07
+              },
+              {
+                "load_factor": 0.9500000000000001,
+                "newton_iterations": 5,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.031787120160083455,
+                "max_yield_violation_Pa": 3.1478703022003174e-07
+              },
+              {
+                "load_factor": 1.0,
+                "newton_iterations": 5,
+                "snes_reason": 2,
+                "max_equivalent_plastic_strain": 0.039057175583298374,
+                "max_yield_violation_Pa": 3.8743019104003906e-07
+              }
+            ],
+            "max_equivalent_plastic_strain": 0.039057175583298374
+          },
+          "surface_nm": {
+            "rmse": 0.05676613103825073,
+            "relative_l2": 0.02304287984105801,
+            "max_abs_error": 0.13710943073353254
+          },
+          "interior_uz_nm": {
+            "rmse": 0.024077222610571408,
+            "relative_l2": 0.018998167421717227,
+            "max_abs_error": 0.06861871686913856
+          },
+          "interior_stress_MPa": {
+            "rmse": 14.822302583520186,
+            "relative_l2": 0.08343804248039555,
+            "max_abs_error": 226.60753340515265
+          },
+          "Cu_W_J_m3": {
+            "rmse": 33597.235142738595,
+            "relative_l2": 0.09378304423870087,
+            "max_abs_error": 334430.8884434408
+          },
+          "stress_by_region": {
+            "Cu": {
+              "rmse": 19.701903656821155,
+              "relative_l2": 0.08998116746708519,
+              "max_abs_error": 226.60753340515265
+            },
+            "SiO2_base": {
+              "rmse": 5.6517939701566355,
+              "relative_l2": 0.10940485877591088,
+              "max_abs_error": 70.9740703954213
+            },
+            "SiO2_annulus": {
+              "rmse": 6.630121371850907,
+              "relative_l2": 0.0496696568278426,
+              "max_abs_error": 91.41524721057687
+            }
+          }
+        }
+      }
+    }
+  }
+}
