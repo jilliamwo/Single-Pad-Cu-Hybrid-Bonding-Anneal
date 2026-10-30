@@ -1,8 +1,8 @@
 """Small-strain associative J2 plasticity with linear isotropic hardening.
 
 History is stored at integration points, never updated during Newton iteration.
-The first implementation follows a prescribed temperature path from a virgin
-state. It is rate independent: load factors are not physical time or creep.
+Temperature paths may start from virgin material or a copied integration-point
+history on the same mesh. It is rate independent: load factors are not physical time or creep.
 """
 from dataclasses import dataclass
 import numpy as np
@@ -53,11 +53,13 @@ def radial_return(elastic_trial, C, mu, old_p, yield_stress, H, active):
 
 def solve_plastic_path(V, eps, C, mu, theta, cu_mask, dielectric_mask,
                        material_cu, material_dielectric, law_cu, law_dielectric,
-                       bcs, load_factors, measure):
-    """Solve from zero initial strain; commit only converged load increments.
+                       bcs, load_factors, measure, *, initial_state=None, initial_displacement=None, constituents=None):
+    """Continue or initialize a path; commit only converged load increments.
 
     Uses degree-4 quadrature for state and weak forms. Temperature path starts
     at each material's reference temperature and scales its target increment.
+    Factors are absolute, not increments relative to the restart. Input history
+    and displacement are copied, so failures never mutate the caller's state.
     """
     mesh=V.mesh
     factors=np.asarray(load_factors,dtype=float)
@@ -74,10 +76,43 @@ def solve_plastic_path(V, eps, C, mu, theta, cu_mask, dielectric_mask,
     Qe=fem.functionspace(mesh,quadrature_element(mesh.basix_cell(),value_shape=(3,3),degree=4))
     state=PlasticState(fem.Function(Qe,name='plastic_strain'),fem.Function(Qp,name='equivalent_plastic_strain'))
     u=fem.Function(V,name='displacement_dimless')
+    if (initial_state is None) != (initial_displacement is None):
+        raise ValueError('Continuation requires both plastic history and dimensionless displacement')
+    if initial_state is not None:
+        for source,target in ((initial_state.strain,state.strain),
+                              (initial_state.equivalent_strain,state.equivalent_strain),
+                              (initial_displacement,u)):
+            if (source.function_space.mesh is not mesh
+                    or source.ufl_shape!=target.ufl_shape
+                    or source.function_space.ufl_element()!=target.function_space.ufl_element()
+                    or source.x.array.shape!=target.x.array.shape):
+                raise ValueError('Continuation requires the same mesh and compatible field spaces; no remapping is performed')
+            if not np.all(np.isfinite(source.x.array)):
+                raise ValueError('Continuation fields must be finite')
+            target.x.array[:]=source.x.array
+            target.x.scatter_forward()
+        if np.any(state.equivalent_strain.x.array<0):
+            raise ValueError('Accumulated plastic strain must be nonnegative')
+        tensors=state.strain.x.array.reshape(-1,3,3)
+        if not np.allclose(tensors,tensors.swapaxes(1,2),atol=1e-12,rtol=0) or not np.allclose(np.trace(tensors,axis1=1,axis2=2),0,atol=1e-10):
+            raise ValueError('J2 plastic strain history must be symmetric and traceless')
     factor=fem.Constant(mesh,0.)
     thermal=factor*theta*ufl.Identity(3)
     trial_elastic=eps(u)-thermal-state.strain
     stress,dep,dp=radial_return(trial_elastic,C,mu,state.equivalent_strain,Y,H,active)
+    if constituents is not None:
+        # Intrinsic Cu return mapping; occupancy weights force, never yield stress.
+        cc=constituents
+        Ccu=lambda e: 2*material_cu.lame_mu_Pa*e+material_cu.lame_lambda_Pa*ufl.tr(e)*ufl.Identity(3)
+        Cd=lambda e: 2*material_dielectric.lame_mu_Pa*e+material_dielectric.lame_lambda_Pa*ufl.tr(e)*ufl.Identity(3)
+        thermal=factor*cc['theta_cu']*ufl.Identity(3)
+        active=ufl.conditional(ufl.gt(cu_mask,0.),1.,0.)
+        Y=law_cu.yield_stress_Pa;H=law_cu.hardening_modulus(material_cu.E_Pa)
+        stress_cu,dep,dp=radial_return(eps(u)-thermal-state.strain,Ccu,
+            material_cu.lame_mu_Pa,state.equivalent_strain,Y,H,active)
+        elastic_d=eps(u)-factor*cc['theta_dielectric']*ufl.Identity(3)
+        background=dielectric_mask*Cd(elastic_d)+cc['void']*cc['void_E']*eps(u)
+        stress=cu_mask*stress_cu+background
     r=ufl.SpatialCoordinate(mesh)[0]
     residual=(ufl.inner(stress,eps(ufl.TestFunction(V)))/material_cu.E_Pa)*r*measure
     problem=NonlinearProblem(residual,u,bcs=bcs,petsc_options_prefix='j2_path_',
@@ -91,7 +126,13 @@ def solve_plastic_path(V, eps, C, mu, theta, cu_mask, dielectric_mask,
     p_expr=fem.Expression(state.equivalent_strain+dp,Qp.element.interpolation_points)
     final_elastic=eps(u)-thermal-state.strain
     final_stress=C(final_elastic)
-    violation_expr=fem.Expression(active*(ufl.sqrt(1.5*ufl.inner(ufl.dev(final_stress),ufl.dev(final_stress)))-Y-H*state.equivalent_strain),Qp.element.interpolation_points)
+    yield_stress=final_stress
+    if constituents is not None:
+        yield_stress=Ccu(final_elastic)
+        final_stress=cu_mask*yield_stress+background
+        cc['cu_energy']=cu_mask*.5*ufl.inner(yield_stress,final_elastic)
+        cc['energy']=cc['cu_energy']+dielectric_mask*.5*ufl.inner(Cd(elastic_d),elastic_d)+cc['void']*.5*cc['void_E']*ufl.inner(eps(u),eps(u))
+    violation_expr=fem.Expression(active*(ufl.sqrt(1.5*ufl.inner(ufl.dev(yield_stress),ufl.dev(yield_stress)))-Y-H*state.equivalent_strain),Qp.element.interpolation_points)
     violation=fem.Function(Qp)
     owned=Qp.dofmap.index_map.size_local*Qp.dofmap.index_map_bs
     history=[]

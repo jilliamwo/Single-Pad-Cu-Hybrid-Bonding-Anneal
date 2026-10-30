@@ -1,0 +1,10 @@
+{
+  "source": "ansys",
+  "source_file": "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/old/ansys-results/250_500nm_3.5_SiO2.csv",
+  "source_sha256": "3cb6ad519ca748f9d8d2b1a33a1a6586fb1197d0eb3c932fc25ba849c6087b6b",
+  "z_origin_offset_nm": 500.0,
+  "transfer": "linear",
+  "surface_sampling_tolerance_nm": 3.0,
+  "reference_C": "not encoded in CSV",
+  "plasticity": "not encoded in CSV"
+}

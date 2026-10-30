@@ -1,0 +1,24 @@
+{
+  "source": "runs/feedback_effect_10s_20261029_194735",
+  "cases": [
+    "interval_2",
+    "frozen"
+  ],
+  "initial_surface_and_energy_equal": true,
+  "surface_rms_difference_nm": 0.0017630520853278763,
+  "surface_max_difference_nm": 0.010560116932708752,
+  "maximum_difference_radius_nm": 250.0,
+  "evolution": {
+    "interval_2": {
+      "center_change_nm": -0.19071285626955614,
+      "edge_change_nm": -3.8819989726625863,
+      "max_absolute_phase_mass_drift": 1.2017226503730537e-14
+    },
+    "frozen": {
+      "center_change_nm": -0.1907118997210091,
+      "edge_change_nm": -3.892559089595295,
+      "max_absolute_phase_mass_drift": 1.212849711950582e-14
+    }
+  },
+  "scope": "Verification and plotting of saved results; no simulation or physical validation"
+}

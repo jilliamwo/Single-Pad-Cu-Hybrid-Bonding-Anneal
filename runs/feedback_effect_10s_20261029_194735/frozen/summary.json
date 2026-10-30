@@ -1,0 +1,18 @@
+{
+  "final_time_s": 10.0,
+  "accepted_steps": 40,
+  "rejected_steps": 0,
+  "solver_rebuilds": 0,
+  "relative_mass_drift": -5.007177709887724e-15,
+  "phi_min": 3.935292533826931e-07,
+  "phi_max": 1.0,
+  "center_relative_to_dielectric_edge_nm": -2.31211875935039,
+  "missing_surface_fraction": 0.0,
+  "kinetic_rate_per_s": 0.0008279515180271653,
+  "coupling": "frozen initial energy; same column-coordinate transfer as feedback case",
+  "mechanical_updates": 0,
+  "height_reference": "initial deformed dielectric edge",
+  "wall_seconds": 31.572223625029437,
+  "max_relative_mechanics_volume_drift": 0.0,
+  "max_mass_vs_contour_height_difference_nm": null
+}

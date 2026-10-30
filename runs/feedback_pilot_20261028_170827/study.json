@@ -1,0 +1,14 @@
+{
+  "experimental": true,
+  "smoke": false,
+  "update_intervals_steps": [
+    1,
+    2
+  ],
+  "occupancy": "fractional",
+  "transfer": "column_mass",
+  "new_Cu_history": "virgin_at_reference",
+  "initial_reference_C": 22.0,
+  "ANSYS_reference_verified": false,
+  "interpretation": "Pairwise interval sensitivity; not physical validation or convergence proof"
+}

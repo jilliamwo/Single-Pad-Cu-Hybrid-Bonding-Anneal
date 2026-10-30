@@ -1,0 +1,21 @@
+{
+  "experimental": true,
+  "smoke": false,
+  "study": "feedback_strength",
+  "cases": [
+    [
+      "interval_2",
+      2
+    ],
+    [
+      "frozen",
+      null
+    ]
+  ],
+  "occupancy": "fractional",
+  "transfer": "column_mass",
+  "new_Cu_history": "virgin_at_reference",
+  "initial_reference_C": 22.0,
+  "ANSYS_reference_verified": false,
+  "interpretation": "Controlled sensitivity with identical initial energy mapping; not physical validation"
+}

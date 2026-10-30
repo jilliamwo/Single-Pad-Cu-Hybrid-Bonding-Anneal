@@ -1,0 +1,13 @@
+{
+  "final_time_s": 100.0,
+  "accepted_steps": 200,
+  "rejected_steps": 0,
+  "solver_rebuilds": 0,
+  "relative_mass_drift": 2.2254105260467747e-16,
+  "phi_min": 3.9454370476580765e-07,
+  "phi_max": 1.0,
+  "center_relative_to_dielectric_edge_nm": -2.0801985414011237,
+  "missing_surface_fraction": 0.0,
+  "kinetic_rate_per_s": 0.0008279515180271653,
+  "coupling": "static one-way; no mechanics feedback, contact, or transient heat equation"
+}

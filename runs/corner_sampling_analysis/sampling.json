@@ -1,0 +1,32 @@
+[
+  {
+    "run": "native_dt025_100s",
+    "phase_nr": 100,
+    "upper_nodes": 396,
+    "upper_relative_rms": 1.1961895773538362,
+    "upper_absolute_rms_J_m3": 61661.80960805545,
+    "outer25nm_squared_error_fraction": 0.985544566193312,
+    "common_node_native_rms_change_J_m3": 0.0,
+    "common_node_native_max_change_J_m3": 0.0
+  },
+  {
+    "run": "native_meshfine_dt025_100s",
+    "phase_nr": 200,
+    "upper_nodes": 1592,
+    "upper_relative_rms": 1.4277162541845316,
+    "upper_absolute_rms_J_m3": 72827.561964401,
+    "outer25nm_squared_error_fraction": 0.9903295329031748,
+    "common_node_native_rms_change_J_m3": 1.2032627691110698e-07,
+    "common_node_native_max_change_J_m3": 7.855705916881561e-07
+  },
+  {
+    "run": "native_meshfiner_dt025_100s",
+    "phase_nr": 400,
+    "upper_nodes": 6384,
+    "upper_relative_rms": 1.4146988674032106,
+    "upper_absolute_rms_J_m3": 76037.10858748341,
+    "outer25nm_squared_error_fraction": 0.990197241255284,
+    "common_node_native_rms_change_J_m3": 4.0886625401745514e-08,
+    "common_node_native_max_change_J_m3": 3.863242454826832e-07
+  }
+]

@@ -1,0 +1,310 @@
+{
+  "source": "native",
+  "statistics": {
+    "solve_time_s": 28.052798124961555,
+    "W_max_J_m3": 974531.432305588,
+    "W_mean_J_m3": 368495.81234743894,
+    "UY_center_nm": 2.752063411364526,
+    "UY_edge_nm": 1.3666384846211188,
+    "dielectric_edge_UY_nm": 1.364815573530904,
+    "relative_edge_height_nm": -3.4981770889093666,
+    "residual_void_E_Pa": 1000.0,
+    "plasticity_enabled": true,
+    "plastic_load_history": [
+      {
+        "load_factor": 0.025,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.05,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.07500000000000001,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.1,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.125,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.15000000000000002,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.17500000000000002,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.2,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.225,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.25,
+        "newton_iterations": 3,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.00018116458558958246,
+        "max_yield_violation_Pa": 3.8533471524715424e-08
+      },
+      {
+        "load_factor": 0.275,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.00039742135701340366,
+        "max_yield_violation_Pa": 2.3143911676015705e-08
+      },
+      {
+        "load_factor": 0.30000000000000004,
+        "newton_iterations": 3,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.00069800131251181,
+        "max_yield_violation_Pa": 3.2887328416109085e-08
+      },
+      {
+        "load_factor": 0.325,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0010488828679601026,
+        "max_yield_violation_Pa": 2.4694600142538548e-08
+      },
+      {
+        "load_factor": 0.35000000000000003,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0014366055444280756,
+        "max_yield_violation_Pa": 4.642060957849026e-08
+      },
+      {
+        "load_factor": 0.375,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0018576471469206096,
+        "max_yield_violation_Pa": 5.39512257091701e-08
+      },
+      {
+        "load_factor": 0.4,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.002295322516720696,
+        "max_yield_violation_Pa": 5.6948920246213675e-08
+      },
+      {
+        "load_factor": 0.42500000000000004,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0027491718238117284,
+        "max_yield_violation_Pa": 5.721813067793846e-08
+      },
+      {
+        "load_factor": 0.45,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.003211767426137733,
+        "max_yield_violation_Pa": 5.7014403864741325e-08
+      },
+      {
+        "load_factor": 0.47500000000000003,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0036795618223193663,
+        "max_yield_violation_Pa": 6.309710443019867e-08
+      },
+      {
+        "load_factor": 0.5,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.004157482075697134,
+        "max_yield_violation_Pa": 6.746267899870872e-08
+      },
+      {
+        "load_factor": 0.525,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.00463698609543362,
+        "max_yield_violation_Pa": 8.952338248491287e-08
+      },
+      {
+        "load_factor": 0.55,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.005125399445560359,
+        "max_yield_violation_Pa": 9.347786544822156e-08
+      },
+      {
+        "load_factor": 0.5750000000000001,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.005613800330387819,
+        "max_yield_violation_Pa": 1.2014061212539673e-07
+      },
+      {
+        "load_factor": 0.6000000000000001,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.006108908515646652,
+        "max_yield_violation_Pa": 1.1130032362416387e-07
+      },
+      {
+        "load_factor": 0.625,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.006601960665293001,
+        "max_yield_violation_Pa": 9.604627848602831e-08
+      },
+      {
+        "load_factor": 0.65,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0070981658720898205,
+        "max_yield_violation_Pa": 1.1210795491933823e-07
+      },
+      {
+        "load_factor": 0.675,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.007587956009794493,
+        "max_yield_violation_Pa": 9.994255378842354e-08
+      },
+      {
+        "load_factor": 0.7000000000000001,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.008109066469749312,
+        "max_yield_violation_Pa": 1.19674950838089e-07
+      },
+      {
+        "load_factor": 0.7250000000000001,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.00863772652049584,
+        "max_yield_violation_Pa": 1.077714841812849e-07
+      },
+      {
+        "load_factor": 0.75,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.009161489099469438,
+        "max_yield_violation_Pa": 1.1397060006856918e-07
+      },
+      {
+        "load_factor": 0.775,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.009897702272441192,
+        "max_yield_violation_Pa": 1.6391277313232422e-07
+      },
+      {
+        "load_factor": 0.8,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.012336963435496305,
+        "max_yield_violation_Pa": 1.555308699607849e-07
+      },
+      {
+        "load_factor": 0.8250000000000001,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.015121128852619419,
+        "max_yield_violation_Pa": 1.955777406692505e-07
+      },
+      {
+        "load_factor": 0.8500000000000001,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.018160588939218816,
+        "max_yield_violation_Pa": 1.9185245037078857e-07
+      },
+      {
+        "load_factor": 0.875,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.021370072812601695,
+        "max_yield_violation_Pa": 2.738088369369507e-07
+      },
+      {
+        "load_factor": 0.9,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.024743936883604392,
+        "max_yield_violation_Pa": 2.6635825634002686e-07
+      },
+      {
+        "load_factor": 0.925,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.028229795462050202,
+        "max_yield_violation_Pa": 2.812594175338745e-07
+      },
+      {
+        "load_factor": 0.9500000000000001,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.03179980171620566,
+        "max_yield_violation_Pa": 3.1478703022003174e-07
+      },
+      {
+        "load_factor": 0.9750000000000001,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.03543827999737722,
+        "max_yield_violation_Pa": 3.2223761081695557e-07
+      },
+      {
+        "load_factor": 1.0,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.03912067729496092,
+        "max_yield_violation_Pa": 3.501772880554199e-07
+      }
+    ],
+    "max_equivalent_plastic_strain": 0.03912067729496092
+  },
+  "L0_nm": 500.0,
+  "z_origin_offset_nm": 500.0,
+  "transfer": "one-sided DG0 point evaluation into P1; reference coordinates; zero outside reference Cu",
+  "Cu_E_Pa": 129000000000.0,
+  "Cu_nu": 0.34,
+  "Cu_alpha_1_K": 1.7e-05,
+  "SiO2_E_Pa": 73000000000.0,
+  "SiO2_nu": 0.17,
+  "SiO2_alpha_1_K": 5.5e-07,
+  "reference_C": 22.0,
+  "temperature_C": 250.0,
+  "yield_stress_Pa": 172300000.0,
+  "tangent_modulus_Pa": 517000000.0
+}

@@ -1,0 +1,7 @@
+Model output: /Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/runs/native_meshfiner_dt025_100s
+Mechanics: native; phase duration: 100 s
+Thermal reference: 22 C (assumed input; ANSYS reference has not been verified).
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 0 s | mass drift = 0.000e+00 | center relative to dielectric edge = -2.11291 nm
+t = 50 s | mass drift = 3.260e-14 | center relative to dielectric edge = -2.13001 nm
+t = 100 s | mass drift = 3.550e-14 | center relative to dielectric edge = -2.01962 nm

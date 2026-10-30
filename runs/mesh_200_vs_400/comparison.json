@@ -1,0 +1,102 @@
+{
+  "left": "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/runs/native_meshfine_dt025_100s",
+  "right": "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/runs/native_meshfiner_dt025_100s",
+  "difference_convention": "left minus right",
+  "source_configs": [
+    {
+      "mechanics_source": "native",
+      "ansys_csv": "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/old/ansys-results/250_500nm_3.5_SiO2.csv",
+      "ansys_interpolation": "linear",
+      "temperature_C": 250.0,
+      "reference_C": 22.0,
+      "plasticity": true,
+      "duration_s": 100.0,
+      "dt_s": 0.25,
+      "min_dt_s": 0.03125,
+      "max_dt_s": 0.25,
+      "measure_interval_s": 50.0,
+      "save_interval_s": 100.0,
+      "mechanics_nr": 80,
+      "mechanics_nz": 80,
+      "thermal_steps": 40,
+      "phase_nr": 200,
+      "phase_nz": 440,
+      "diffusivity_factor": 0.1,
+      "interface_width_nm": 5.0,
+      "wall_energy_J_m2": -0.651,
+      "mechanical_energy_multiplier": 1.0,
+      "write_fields": true
+    },
+    {
+      "mechanics_source": "native",
+      "ansys_csv": "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/old/ansys-results/250_500nm_3.5_SiO2.csv",
+      "ansys_interpolation": "linear",
+      "temperature_C": 250.0,
+      "reference_C": 22.0,
+      "plasticity": true,
+      "duration_s": 100.0,
+      "dt_s": 0.25,
+      "min_dt_s": 0.03125,
+      "max_dt_s": 0.25,
+      "measure_interval_s": 50.0,
+      "save_interval_s": 100.0,
+      "mechanics_nr": 80,
+      "mechanics_nz": 80,
+      "thermal_steps": 40,
+      "phase_nr": 400,
+      "phase_nz": 880,
+      "diffusivity_factor": 0.1,
+      "interface_width_nm": 5.0,
+      "wall_energy_J_m2": -0.651,
+      "mechanical_energy_multiplier": 1.0,
+      "write_fields": true
+    }
+  ],
+  "study": "mesh",
+  "initial": {
+    "surface_rmse_nm": 0.0009490544074071953,
+    "surface_max_abs_nm": 0.0012167127096063268,
+    "center_difference_nm": 0.0007692051927961074,
+    "edge_difference_nm": 0.001180246821036235
+  },
+  "final": {
+    "surface_rmse_nm": 0.01641418827763063,
+    "surface_max_abs_nm": 0.059389896310847234,
+    "center_difference_nm": -0.059389896310847234,
+    "edge_difference_nm": 0.05506328813902428
+  },
+  "evolution_difference": {
+    "surface_change_rmse_nm": 0.016733379558352326,
+    "center_change_difference_nm": -0.06015910150364334,
+    "edge_change_difference_nm": 0.053883041317988045
+  },
+  "run_summaries": [
+    {
+      "final_time_s": 100.0,
+      "accepted_steps": 400,
+      "rejected_steps": 0,
+      "solver_rebuilds": 0,
+      "relative_mass_drift": 1.312992210367597e-14,
+      "phi_min": 3.94543716639754e-07,
+      "phi_max": 1.0,
+      "center_relative_to_dielectric_edge_nm": -2.0790070600111843,
+      "missing_surface_fraction": 0.0,
+      "kinetic_rate_per_s": 0.0008279515180271653,
+      "coupling": "static one-way; no mechanics feedback, contact, or transient heat equation"
+    },
+    {
+      "final_time_s": 100.0,
+      "accepted_steps": 400,
+      "rejected_steps": 0,
+      "solver_rebuilds": 0,
+      "relative_mass_drift": 3.549529788939095e-14,
+      "phi_min": 3.94550556934945e-07,
+      "phi_max": 1.0,
+      "center_relative_to_dielectric_edge_nm": -2.019617163700249,
+      "missing_surface_fraction": 0.0,
+      "kinetic_rate_per_s": 0.0008279515180271653,
+      "coupling": "static one-way; no mechanics feedback, contact, or transient heat equation"
+    }
+  ],
+  "interpretation": "Pairwise sensitivity only; no convergence order or automatic pass/fail claim."
+}

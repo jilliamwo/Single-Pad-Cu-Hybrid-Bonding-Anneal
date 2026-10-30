@@ -1,0 +1,28 @@
+{
+  "source_run": "runs/native_dt05_100s",
+  "no_mechanical_or_phase_solve": true,
+  "initial_geometry": {
+    "graph_volume_without_2pi": 0.12412500000000003,
+    "mapped_volume_without_2pi": 0.124125,
+    "relative_graph_volume_error": -2.236098740433346e-16,
+    "fractional_cells": 0,
+    "min_fraction": 0.0,
+    "max_fraction": 1.0
+  },
+  "final_geometry": {
+    "graph_volume_without_2pi": 0.12411349421863747,
+    "mapped_volume_without_2pi": 0.12411349421863746,
+    "relative_graph_volume_error": -1.1181530175411418e-16,
+    "fractional_cells": 86,
+    "min_fraction": 0.0,
+    "max_fraction": 1.0
+  },
+  "binary_changed_cells": 26,
+  "fraction_changed_cells": 97,
+  "binary_initial_volume_without_2pi": 0.12412499999999992,
+  "binary_final_volume_without_2pi": 0.12410212890624991,
+  "binary_final_error_relative_to_graph": -9.157193147377272e-05,
+  "reference_graph_volume_change": -9.269511671750053e-05,
+  "reported_phase_mass_drift": -3.6719303205843365e-15,
+  "interpretation": "Fraction transfer conserves reconstructed reference graph. Graph extraction/frozen-column mapping is not a conservative transfer of diffuse phase mass."
+}

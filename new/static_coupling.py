@@ -22,6 +22,7 @@ class StaticMechanics:
     dielectric_uz: np.ndarray
     sample_energy: object
     metadata: dict
+    native_result: object = None
 
     def surface_height(self,r):
         return .993+np.interp(r,self.radii,self.uz)
@@ -83,7 +84,7 @@ def build_static_mechanics(config):
              'SiO2_E_Pa':dielectric.E_Pa,'SiO2_nu':dielectric.nu,'SiO2_alpha_1_K':dielectric.alpha_1_K,
              'reference_C':config.reference_C,'temperature_C':config.temperature_C,
              'yield_stress_Pa':172.3e6 if config.plasticity else None,
-             'tangent_modulus_Pa':517e6 if config.plasticity else None})
+             'tangent_modulus_Pa':517e6 if config.plasticity else None},native_result=result)
     a=load_ansys(Path(config.ansys_csv))
     # Match the existing 3 nm Cu-surface sampling tolerance and radial averaging.
     surface=(a[:,1]>=-1e-15)&(a[:,1]<=250e-9+1e-15)&(np.abs(a[:,2]-996.5e-9)<=3e-9)

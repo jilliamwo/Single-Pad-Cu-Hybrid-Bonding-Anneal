@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "occupancy_mode": "binary",
+  "transfer_mode": "contour",
+  "checks": [
+    "real phase/mechanics updates across four accepted steps",
+    "post-mechanical-trial failure rolls back phase/history/energy",
+    "retry agrees with uninterrupted smaller-step run",
+    "input mechanics unchanged",
+    "domain rejection stops with accepted state intact",
+    "resolved synthetic growth transfers nonzero energy into newly occupied region",
+    "volume-limit rejection leaves accepted mechanics untouched"
+  ],
+  "normal_summary": {
+    "final_time_s": 0.1,
+    "accepted_steps": 4,
+    "rejected_steps": 0,
+    "solver_rebuilds": 0,
+    "relative_mass_drift": 5.343881732891098e-15,
+    "phi_min": -0.0023540196203901084,
+    "phi_max": 1.007953799775653,
+    "center_relative_to_dielectric_edge_nm": -4.219707730787503,
+    "missing_surface_fraction": 0.0,
+    "kinetic_rate_per_s": 0.0008279515180271653,
+    "coupling": "experimental staggered feedback; frozen column coordinates",
+    "mechanical_updates": 4,
+    "height_reference": "initial deformed dielectric edge"
+  },
+  "retry_summary": {
+    "final_time_s": 0.1,
+    "accepted_steps": 4,
+    "rejected_steps": 1,
+    "solver_rebuilds": 0,
+    "relative_mass_drift": 5.343881732891098e-15,
+    "phi_min": -0.0023540196203901084,
+    "phi_max": 1.007953799775653,
+    "center_relative_to_dielectric_edge_nm": -4.219707730787503,
+    "missing_surface_fraction": 0.0,
+    "kinetic_rate_per_s": 0.0008279515180271653,
+    "coupling": "experimental staggered feedback; frozen column coordinates",
+    "mechanical_updates": 4,
+    "height_reference": "initial deformed dielectric edge"
+  },
+  "updates": [
+    {
+      "time_s": 0.025,
+      "step": 1,
+      "gained_integration_points": 0,
+      "removed_integration_points": 0,
+      "retained_integration_points": 864,
+      "new_cu_history_policy": "reject_growth",
+      "occupancy_mode": "binary",
+      "conservative_geometry": {
+        "graph_volume_without_2pi": 0.1241120420503202,
+        "mapped_volume_without_2pi": 0.12411204205032018,
+        "relative_graph_volume_error": -1.1181661004488045e-16,
+        "fractional_cells": 13,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "changed_cells": 0,
+      "previous_reference_Cu_volume_without_2pi": 0.12412500000000014,
+      "trial_reference_Cu_volume_without_2pi": 0.12412500000000014,
+      "relative_reference_Cu_volume_change": 0.0,
+      "binary_volume_error_relative_to_graph": 0.00010440525726493246,
+      "geometry_transfer": "contour",
+      "cumulative_reference_volume_change": 0.0
+    },
+    {
+      "time_s": 0.05,
+      "step": 2,
+      "gained_integration_points": 0,
+      "removed_integration_points": 0,
+      "retained_integration_points": 864,
+      "new_cu_history_policy": "reject_growth",
+      "occupancy_mode": "binary",
+      "conservative_geometry": {
+        "graph_volume_without_2pi": 0.12410403860368566,
+        "mapped_volume_without_2pi": 0.12410403860368566,
+        "relative_graph_volume_error": 0.0,
+        "fractional_cells": 13,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "changed_cells": 0,
+      "previous_reference_Cu_volume_without_2pi": 0.12412500000000014,
+      "trial_reference_Cu_volume_without_2pi": 0.12412500000000014,
+      "relative_reference_Cu_volume_change": 0.0,
+      "binary_volume_error_relative_to_graph": 0.0001689018065030046,
+      "geometry_transfer": "contour",
+      "cumulative_reference_volume_change": 0.0
+    },
+    {
+      "time_s": 0.07500000000000001,
+      "step": 3,
+      "gained_integration_points": 0,
+      "removed_integration_points": 0,
+      "retained_integration_points": 864,
+      "new_cu_history_policy": "reject_growth",
+      "occupancy_mode": "binary",
+      "conservative_geometry": {
+        "graph_volume_without_2pi": 0.12409914591676133,
+        "mapped_volume_without_2pi": 0.12409914591676134,
+        "relative_graph_volume_error": 1.118282298020237e-16,
+        "fractional_cells": 13,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "changed_cells": 0,
+      "previous_reference_Cu_volume_without_2pi": 0.12412500000000014,
+      "trial_reference_Cu_volume_without_2pi": 0.12412500000000014,
+      "relative_reference_Cu_volume_change": 0.0,
+      "binary_volume_error_relative_to_graph": 0.00020833409487082126,
+      "geometry_transfer": "contour",
+      "cumulative_reference_volume_change": 0.0
+    },
+    {
+      "time_s": 0.1,
+      "step": 4,
+      "gained_integration_points": 0,
+      "removed_integration_points": 0,
+      "retained_integration_points": 864,
+      "new_cu_history_policy": "reject_growth",
+      "occupancy_mode": "binary",
+      "conservative_geometry": {
+        "graph_volume_without_2pi": 0.12409623617433116,
+        "mapped_volume_without_2pi": 0.12409623617433117,
+        "relative_graph_volume_error": 1.1183085189077656e-16,
+        "fractional_cells": 13,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "changed_cells": 0,
+      "previous_reference_Cu_volume_without_2pi": 0.12412500000000014,
+      "trial_reference_Cu_volume_without_2pi": 0.12412500000000014,
+      "relative_reference_Cu_volume_change": 0.0,
+      "binary_volume_error_relative_to_graph": 0.00023178644700046444,
+      "geometry_transfer": "contour",
+      "cumulative_reference_volume_change": 0.0
+    }
+  ],
+  "scope": "tiny workflow validation only; not physical validation or converged two-way results"
+}

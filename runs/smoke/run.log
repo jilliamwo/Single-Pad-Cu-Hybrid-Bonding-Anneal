@@ -1,0 +1,7 @@
+Model output: /Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/runs/smoke
+Mechanics: native; phase duration: 0.1 s
+SMOKE PRESET: coarse workflow test, not a physical prediction.
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 0 s | mass drift = 0.000e+00 | center relative to dielectric edge = -2.88644 nm
+t = 0.05 s | mass drift = 4.676e-15 | center relative to dielectric edge = -3.8926 nm
+t = 0.1 s | mass drift = 7.125e-15 | center relative to dielectric edge = -4.17818 nm

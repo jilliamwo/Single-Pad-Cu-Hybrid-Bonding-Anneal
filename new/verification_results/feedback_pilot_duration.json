@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checks": [
+    "duration override runs eight fixed steps per case",
+    "eight versus four mechanics updates",
+    "incompatible endpoint rejected before output creation"
+  ],
+  "smoke_duration_s": 0.2
+}

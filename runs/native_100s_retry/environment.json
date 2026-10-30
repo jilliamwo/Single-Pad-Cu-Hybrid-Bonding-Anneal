@@ -1,0 +1,13 @@
+{
+  "python": "3.12.7 | packaged by Anaconda, Inc. | (main, Oct  4 2024, 08:22:19) [Clang 14.0.6 ]",
+  "executable": "/opt/anaconda3/bin/python",
+  "platform": "macOS-15.0.1-arm64-arm-64bit",
+  "fenics-dolfinx": "not installed",
+  "fenics-ufl": "not installed",
+  "fenics-basix": "not installed",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "petsc4py": "not installed",
+  "mpi4py": "not installed",
+  "git_commit": "47649d026a6904ff0072ec528e32ca26e8230ca7"
+}

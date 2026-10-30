@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "checks": [
+    "exact radial moment (not planar area fraction)",
+    "triangle orientation invariance",
+    "sharp baseline reproduction",
+    "subcell motion detected where binary mask is unchanged",
+    "known added volume recovered",
+    "zero-volume redistribution preserved",
+    "FE radial integral agrees",
+    "multiple surface segments per cell",
+    "invalid input rejected"
+  ],
+  "results": [
+    {
+      "mesh_nr": 4,
+      "flat": {
+        "graph_volume_without_2pi": 0.12412500000000001,
+        "mapped_volume_without_2pi": 0.124125,
+        "relative_graph_volume_error": -1.1180493702166732e-16,
+        "fractional_cells": 0,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "subcell_motion": {
+        "graph_volume_without_2pi": 0.12412625000000002,
+        "mapped_volume_without_2pi": 0.12412625000000001,
+        "relative_graph_volume_error": -1.1180381110211946e-16,
+        "fractional_cells": 4,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "constant_volume_tilt": {
+        "graph_volume_without_2pi": 0.12412500000000001,
+        "mapped_volume_without_2pi": 0.124125,
+        "relative_graph_volume_error": -1.1180493702166732e-16,
+        "fractional_cells": 6,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "piecewise_linear_curve": {
+        "graph_volume_without_2pi": 0.12349918619791668,
+        "mapped_volume_without_2pi": 0.12349918619791667,
+        "relative_graph_volume_error": -1.1237149195116367e-16,
+        "fractional_cells": 4,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      }
+    },
+    {
+      "mesh_nr": 8,
+      "flat": {
+        "graph_volume_without_2pi": 0.12412500000000001,
+        "mapped_volume_without_2pi": 0.12412500000000001,
+        "relative_graph_volume_error": 0.0,
+        "fractional_cells": 0,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "subcell_motion": {
+        "graph_volume_without_2pi": 0.12412625000000002,
+        "mapped_volume_without_2pi": 0.12412625000000002,
+        "relative_graph_volume_error": 0.0,
+        "fractional_cells": 8,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "constant_volume_tilt": {
+        "graph_volume_without_2pi": 0.12412500000000001,
+        "mapped_volume_without_2pi": 0.12412500000000003,
+        "relative_graph_volume_error": 1.1180493702166732e-16,
+        "fractional_cells": 10,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      },
+      "piecewise_linear_curve": {
+        "graph_volume_without_2pi": 0.12349918619791668,
+        "mapped_volume_without_2pi": 0.12349918619791668,
+        "relative_graph_volume_error": 0.0,
+        "fractional_cells": 8,
+        "min_fraction": 0.0,
+        "max_fraction": 1.0
+      }
+    }
+  ],
+  "scope": "conservation of supplied reference graph only; not phase mass or fractional plasticity validation"
+}

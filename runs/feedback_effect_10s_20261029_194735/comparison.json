@@ -1,0 +1,52 @@
+{
+  "study": "feedback_strength",
+  "difference_convention": "interval_2 minus frozen",
+  "initial_profiles_and_energy_identical": true,
+  "wall_seconds": 141.809560624999,
+  "surface_rms_difference_nm": 0.0017630520853278763,
+  "surface_max_difference_nm": 0.010560116932708752,
+  "center_difference_nm": -9.56548547037528e-07,
+  "edge_difference_nm": 0.010560116932708752,
+  "nodal_energy_rms_difference_J_m3": 7136.57411293857,
+  "nodal_energy_relative_L2_difference": 0.019655788271840564,
+  "max_equivalent_plastic_strain_difference": 0.004598876376839499,
+  "run_summaries": [
+    {
+      "final_time_s": 10.0,
+      "accepted_steps": 40,
+      "rejected_steps": 0,
+      "solver_rebuilds": 0,
+      "relative_mass_drift": -5.229718941438289e-15,
+      "phi_min": 3.935309983055881e-07,
+      "phi_max": 1.0,
+      "center_relative_to_dielectric_edge_nm": -2.312119715898897,
+      "missing_surface_fraction": 0.0,
+      "kinetic_rate_per_s": 0.0008279515180271653,
+      "coupling": "experimental staggered feedback; frozen column coordinates",
+      "mechanical_updates": 20,
+      "height_reference": "initial deformed dielectric edge",
+      "wall_seconds": 76.13703720795456,
+      "max_relative_mechanics_volume_drift": 5.59024685108337e-16,
+      "max_mass_vs_contour_height_difference_nm": 0.24012996151559995
+    },
+    {
+      "final_time_s": 10.0,
+      "accepted_steps": 40,
+      "rejected_steps": 0,
+      "solver_rebuilds": 0,
+      "relative_mass_drift": -5.007177709887724e-15,
+      "phi_min": 3.935292533826931e-07,
+      "phi_max": 1.0,
+      "center_relative_to_dielectric_edge_nm": -2.31211875935039,
+      "missing_surface_fraction": 0.0,
+      "kinetic_rate_per_s": 0.0008279515180271653,
+      "coupling": "frozen initial energy; same column-coordinate transfer as feedback case",
+      "mechanical_updates": 0,
+      "height_reference": "initial deformed dielectric edge",
+      "wall_seconds": 31.572223625029437,
+      "max_relative_mechanics_volume_drift": 0.0,
+      "max_mass_vs_contour_height_difference_nm": null
+    }
+  ],
+  "interpretation": "Controlled pair on the same fixed time grid; no automatic accuracy/pass threshold"
+}

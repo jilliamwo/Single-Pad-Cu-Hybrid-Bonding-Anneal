@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "checks": [
+    "unchanged occupancy reproduces calibrated sharp solve",
+    "erosion updates equilibrium and energy",
+    "trial proposals do not mutate accepted history",
+    "failed mechanics proposal leaves accepted state intact",
+    "stale commit rejected",
+    "growth rejected by default",
+    "explicit virgin-reference growth produces finite mechanics"
+  ],
+  "erosion": {
+    "gained_integration_points": 0,
+    "removed_integration_points": 24,
+    "retained_integration_points": 360,
+    "new_cu_history_policy": "reject_growth",
+    "occupancy_mode": "binary",
+    "conservative_geometry": {
+      "graph_volume_without_2pi": 0.114125,
+      "mapped_volume_without_2pi": 0.114125,
+      "relative_graph_volume_error": 0.0,
+      "fractional_cells": 8,
+      "min_fraction": 0.0,
+      "max_fraction": 1.0
+    },
+    "changed_cells": 4,
+    "previous_reference_Cu_volume_without_2pi": 0.12412500000000003,
+    "trial_reference_Cu_volume_without_2pi": 0.11701367187500002,
+    "relative_reference_Cu_volume_change": -0.05729166666666674,
+    "binary_volume_error_relative_to_graph": 0.025311473165388936
+  },
+  "growth": {
+    "gained_integration_points": 96,
+    "removed_integration_points": 0,
+    "retained_integration_points": 384,
+    "new_cu_history_policy": "virgin_at_reference",
+    "occupancy_mode": "binary",
+    "conservative_geometry": {
+      "graph_volume_without_2pi": 0.12487499999999999,
+      "mapped_volume_without_2pi": 0.12487499999999999,
+      "relative_graph_volume_error": 0.0,
+      "fractional_cells": 8,
+      "min_fraction": 0.0,
+      "max_fraction": 1.0
+    },
+    "changed_cells": 16,
+    "previous_reference_Cu_volume_without_2pi": 0.12412500000000003,
+    "trial_reference_Cu_volume_without_2pi": 0.125,
+    "relative_reference_Cu_volume_change": 0.00704934541792526,
+    "binary_volume_error_relative_to_graph": 0.001001001001001113
+  },
+  "scope": "synthetic 8-by-8-per-layer mechanics tests; no coupled phase evolution or physical validation"
+}

@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "error": "Phase solve failed at t=44s, dt=0.03125s, SNES=-999; minimum dt reached. error code 73\n[0] SNESSolve() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/snes/interface/snes.c:4881\n[0] SNESSolve_NEWTONLS() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/snes/impls/ls/ls.c:234\n[0] SNESLineSearchApply() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/snes/linesearch/interface/linesearch.c:645\n[0] SNESLineSearchApply_BT() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/snes/linesearch/impls/bt/linesearchbt.c:123\n[0] MatMult() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/mat/interface/matrix.c:2667\n[0] VecSetErrorIfLocked() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/include/petscvec.h:672\n[0] Object is in wrong state\n[0] Vector 'Vec_0xc4000007_0' (argument #3) was locked for read-only access in unknown_function() at unknown file:0 (line numbers only accurate to function begin)",
+  "type": "RuntimeError"
+}

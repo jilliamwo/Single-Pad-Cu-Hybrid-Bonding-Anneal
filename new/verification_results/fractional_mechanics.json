@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "checks": [
+    "binary limit matches original solve",
+    "0.005 nm erosion and growth change equilibrium and energy",
+    "intrinsic Cu yield consistency",
+    "Cu energy weighted exactly once",
+    "nonnegative stored Cu energy",
+    "caller history unchanged",
+    "partial growth dilutes history; partial loss retains history; total loss clears history"
+  ],
+  "erosion": {
+    "gained_integration_points": 0,
+    "removed_integration_points": 48,
+    "retained_integration_points": 384,
+    "new_cu_history_policy": "virgin_at_reference",
+    "occupancy_mode": "fractional",
+    "conservative_geometry": {
+      "graph_volume_without_2pi": 0.12412374999999999,
+      "mapped_volume_without_2pi": 0.12412375,
+      "relative_graph_volume_error": 1.1180606296389254e-16,
+      "fractional_cells": 8,
+      "min_fraction": 0.0,
+      "max_fraction": 1.0
+    },
+    "changed_cells": 8,
+    "previous_reference_Cu_volume_without_2pi": 0.12412500000000003,
+    "trial_reference_Cu_volume_without_2pi": 0.12412375,
+    "relative_reference_Cu_volume_change": -1.0070493454357032e-05,
+    "fractional_volume_error_relative_to_graph": 1.1180606296389254e-16
+  },
+  "growth": {
+    "gained_integration_points": 48,
+    "removed_integration_points": 0,
+    "retained_integration_points": 384,
+    "new_cu_history_policy": "virgin_at_reference",
+    "occupancy_mode": "fractional",
+    "conservative_geometry": {
+      "graph_volume_without_2pi": 0.12412625,
+      "mapped_volume_without_2pi": 0.12412625,
+      "relative_graph_volume_error": 0.0,
+      "fractional_cells": 8,
+      "min_fraction": 0.0,
+      "max_fraction": 1.0
+    },
+    "changed_cells": 8,
+    "previous_reference_Cu_volume_without_2pi": 0.12412500000000003,
+    "trial_reference_Cu_volume_without_2pi": 0.12412625000000002,
+    "relative_reference_Cu_volume_change": 1.0070493454133422e-05,
+    "fractional_volume_error_relative_to_graph": 2.2360762220423897e-16
+  },
+  "scope": "8 by 8 per layer; homogeneous mixture approximation, not physical validation"
+}

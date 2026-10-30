@@ -1,4 +1,4 @@
-"""Axisymmetric surface-diffusion model with frozen mechanical energy."""
+"""Axisymmetric surface diffusion with static or experimental staggered energy."""
 import csv
 import json
 import math
@@ -58,7 +58,7 @@ class SurfaceSampler:
         return height
 
 
-def run_phase_field(config,mechanics,out):
+def run_phase_field(config,mechanics,out,*,feedback=None):
     mesh=dm.create_rectangle(MPI.COMM_WORLD,[np.array([0.,0.]),np.array([.5,1.1])],
                              [config.phase_nr,config.phase_nz],cell_type=dm.CellType.triangle)
     P1=element('Lagrange',mesh.basix_cell(),1)
@@ -66,7 +66,11 @@ def run_phase_field(config,mechanics,out):
     u=fem.Function(mixed);old=fem.Function(mixed)
     u.sub(0).interpolate(lambda x:.5*(1-np.tanh((x[1]-mechanics.surface_height(x[0]))/(np.sqrt(2)*config.interface_width_nm/500))))
     old.x.array[:]=u.x.array;old.x.scatter_forward()
-    W=transfer_energy(mechanics,V,config.mechanical_energy_multiplier)
+    phi=fem.Function(V,name='phi');phi.interpolate(u.sub(0))
+    sampler=SurfaceSampler(mesh)
+    initial_surface=sampler.sample(phi)
+    W=(transfer_energy(mechanics,V,config.mechanical_energy_multiplier) if feedback is None else
+       feedback.initialize(V,sampler.r,initial_surface,config.mechanical_energy_multiplier,phase=phi))
     frozen=W.x.array.copy()
     coords=V.tabulate_dof_coordinates()
     np.savetxt(out/'coupling_samples.csv',np.column_stack((coords[:,0]*500,coords[:,1]*500,W.x.array)),delimiter=',',header='r_nm,z_phase_nm,W_J_m3',comments='')
@@ -74,23 +78,25 @@ def run_phase_field(config,mechanics,out):
     tags=dm.meshtags(mesh,1,facets,np.ones(len(facets),dtype=np.int32))
     ds=ufl.Measure('ds',domain=mesh,subdomain_data=tags)
     dt=fem.Constant(mesh,PETSc.ScalarType(config.dt_s))
-    problem=NonlinearProblem(residual(config,u,old,W,dt,ds),u,petsc_options_prefix='model_',petsc_options={
-        'snes_type':'newtonls','snes_linesearch_type':'bt','snes_rtol':1e-8,'snes_atol':1e-10,
-        'snes_stol':1e-10,'snes_max_it':120,'ksp_type':'preonly','pc_type':'lu'})
-    phi=fem.Function(V,name='phi');phi.interpolate(u.sub(0))
-    sampler=SurfaceSampler(mesh)
+    F=residual(config,u,old,W,dt,ds)
+    def make_problem():
+        return NonlinearProblem(F,u,petsc_options_prefix='model_',petsc_options={
+            'snes_type':'newtonls','snes_linesearch_type':'bt','snes_rtol':1e-8,'snes_atol':1e-10,
+            'snes_stol':1e-10,'snes_max_it':120,'ksp_type':'preonly','pc_type':'lu'})
+    problem=make_problem()
     r=ufl.SpatialCoordinate(mesh)[0]
     massform=fem.form(phi*r*ufl.dx)
     initial_mass=float(fem.assemble_scalar(massform))
     initial_surface=sampler.sample(phi)
     t=0.;step=0;rejected=0;easy=0;next_measure=config.measure_interval_s;next_save=config.save_interval_s
     adaptive_dt=config.dt_s
+    solver_errors=[];recoveries=0;rebuild_pending=False
     with ExitStack() as stack:
         historyfile=stack.enter_context((out/'time_history.csv').open('w',newline=''))
         history=csv.writer(historyfile)
         history.writerow(['time_s','mass_axisymmetric_normalized','relative_mass_drift','phi_min','phi_max','center_z_phase_nm','edge_z_phase_nm','center_relative_to_dielectric_edge_nm','missing_surface_fraction'])
         stepsfile=stack.enter_context((out/'step_history.csv').open('w',newline=''));steps=csv.writer(stepsfile)
-        steps.writerow(['step','time_before_s','dt_s','accepted','snes_reason','iterations'])
+        steps.writerow(['step','time_before_s','dt_s','accepted','snes_reason','iterations','petsc_error_code'])
         surfacefile=stack.enter_context((out/'surface_history.csv').open('w',newline=''))
         surfaces=csv.writer(surfacefile)
         surfaces.writerow(['time_s','r_nm','z_phase_nm'])
@@ -107,7 +113,7 @@ def run_phase_field(config,mechanics,out):
             surfaces.writerows(zip(np.full(len(height),t),sampler.r*500,height*500))
             surfacefile.flush()
             np.savetxt(out/'final_surface.csv',np.column_stack((sampler.r*500,height*500)),delimiter=',',header='r_nm,z_phase_nm',comments='')
-            (out/'progress.json').write_text(json.dumps({'time_s':t,'accepted_steps':step,'relative_mass_drift':row[2],'missing_surface_fraction':row[-1]},indent=2))
+            (out/'progress.json').write_text(json.dumps({'time_s':t,'accepted_steps':step,'rejected_steps':rejected,'solver_rebuilds':recoveries,'relative_mass_drift':row[2],'missing_surface_fraction':row[-1]},indent=2))
             print(f't = {t:g} s | mass drift = {row[2]:.3e} | center relative to dielectric edge = {row[7]:.6g} nm',flush=True)
             return row
         np.savetxt(out/'initial_surface.csv',np.column_stack((sampler.r*500,initial_surface*500,mechanics.surface_height(sampler.r)*500)),delimiter=',',header='r_nm,z_phase_nm,analytic_initial_z_phase_nm',comments='')
@@ -116,21 +122,60 @@ def run_phase_field(config,mechanics,out):
         while t<config.duration_s-1e-12:
             attempt_dt=min(adaptive_dt,config.duration_s-t);dt.value=attempt_dt
             u.x.array[:]=old.x.array;u.x.scatter_forward()
-            failure=None
+            failure=None;error_code=None;coupling_error=None;coupling_trial=None
             try:
                 problem.solve()
                 reason=int(problem.solver.getConvergedReason());iterations=int(problem.solver.getIterationNumber())
                 accepted=reason>0 and np.all(np.isfinite(u.x.array))
             except PETSc.Error as error:
-                reason=-999;iterations=0;accepted=False;failure=str(error)
-            steps.writerow([step+1,t,attempt_dt,int(accepted),reason,iterations]);stepsfile.flush()
+                reason=int(problem.solver.getConvergedReason())
+                iterations=int(problem.solver.getIterationNumber())
+                accepted=False;failure=str(error);error_code=int(error.ierr)
+                solver_errors.append({'time_s':t,'dt_s':attempt_dt,'error_code':error_code,
+                                      'message':failure,'after_rebuild':rebuild_pending})
+                (out/'solver_errors.json').write_text(json.dumps(solver_errors,indent=2))
+            if accepted and feedback is not None:
+                try:
+                    phi.interpolate(u.sub(0))
+                    coupling_trial=feedback.propose(sampler.sample(phi),t+attempt_dt,step+1,phase=phi)
+                except Exception as error:
+                    coupling_error=error;accepted=False
+                    with (out/'coupling_failures.log').open('a') as log:
+                        log.write(f't={t:g}, dt={attempt_dt:g}, {type(error).__name__}: {error}\n')
+            steps.writerow([step+1,t,attempt_dt,int(accepted),reason,iterations,error_code]);stepsfile.flush()
             if not accepted:
                 u.x.array[:]=old.x.array;u.x.scatter_forward();rejected+=1;easy=0
+                # Capture accepted-state diagnostics before retrying. A failed Newton
+                # iterate must never be reported as a physical state.
+                last=measure()
+                if coupling_error is not None and isinstance(coupling_error,ValueError):
+                    raise RuntimeError(f'Feedback geometry/history policy rejected at t={t:g}s: {coupling_error}') from coupling_error
+                if failure is not None:
+                    if rebuild_pending:
+                        np.savez_compressed(out/'last_accepted_state.npz',time_s=t,
+                                            mixed_dofs=old.x.array,coordinates=mesh.geometry.x)
+                        raise RuntimeError(f'PETSc internal error repeated at t={t:g}s after solver rebuild; '
+                                           f'see solver_errors.json. {failure}')
+                    # Do not repeatedly halve dt for a corrupted solver object.
+                    # A fresh NonlinearProblem owns fresh SNES, matrix and vectors.
+                    problem=None
+                    problem=make_problem();recoveries+=1;rebuild_pending=True
+                    print(f'PETSc error {error_code} at t={t:g}s; rebuilding solver and retrying dt={attempt_dt:g}s',flush=True)
+                    continue
+                rebuild_pending=False
                 if attempt_dt/2<config.min_dt_s:
-                    raise RuntimeError(f'Phase solve failed at t={t:g}s, dt={attempt_dt:g}s, SNES={reason}; minimum dt reached. {failure or ""}')
+                    np.savez_compressed(out/'last_accepted_state.npz',time_s=t,
+                                        mixed_dofs=old.x.array,coordinates=mesh.geometry.x)
+                    raise RuntimeError(f'Step failed at t={t:g}s, dt={attempt_dt:g}s; minimum dt reached. '
+                                       f'{coupling_error if coupling_error is not None else f"Phase SNES={reason}"}')
                 adaptive_dt=attempt_dt/2;print(f'Retrying at dt={adaptive_dt:g}s',flush=True);continue
+            rebuild_pending=False
+            if feedback is not None:
+                feedback.commit(coupling_trial,W)
+                (out/'coupling_history.json').write_text(json.dumps(feedback.records,indent=2))
+                np.savetxt(out/'latest_energy_samples.csv',np.column_stack((coords[:,0]*500,coords[:,1]*500,W.x.array)),delimiter=',',header='r_nm,z_phase_nm,W_J_m3',comments='')
             t+=attempt_dt;step+=1;old.x.array[:]=u.x.array;old.x.scatter_forward()
-            (out/'progress.json').write_text(json.dumps({'time_s':t,'accepted_steps':step,'rejected_steps':rejected,'last_dt_s':attempt_dt},indent=2))
+            (out/'progress.json').write_text(json.dumps({'time_s':t,'accepted_steps':step,'rejected_steps':rejected,'solver_rebuilds':recoveries,'last_dt_s':attempt_dt},indent=2))
             easy=easy+1 if iterations<=8 else 0
             if easy>=20:adaptive_dt=min(config.max_dt_s,adaptive_dt*1.25);easy=0
             final=t>=config.duration_s-1e-12
@@ -141,8 +186,11 @@ def run_phase_field(config,mechanics,out):
                 phi.interpolate(u.sub(0))
                 if xdmf:xdmf.write_function(phi,t)
                 while next_save<=t+1e-12:next_save+=config.save_interval_s
-        if not np.array_equal(frozen,W.x.array):raise RuntimeError('Frozen mechanical energy changed')
-    return {'final_time_s':t,'accepted_steps':step,'rejected_steps':rejected,'relative_mass_drift':last[2],
+        if feedback is None and not np.array_equal(frozen,W.x.array):raise RuntimeError('Frozen mechanical energy changed')
+    return {'final_time_s':t,'accepted_steps':step,'rejected_steps':rejected,'solver_rebuilds':recoveries,'relative_mass_drift':last[2],
             'phi_min':last[3],'phi_max':last[4],'center_relative_to_dielectric_edge_nm':last[7],
             'missing_surface_fraction':last[-1],'kinetic_rate_per_s':kinetic_rate(config),
-            'coupling':'static one-way; no mechanics feedback, contact, or transient heat equation'}
+            'coupling':('static one-way; no mechanics feedback, contact, or transient heat equation' if feedback is None else
+                        'experimental staggered feedback; frozen column coordinates'),
+            'mechanical_updates':0 if feedback is None else len(feedback.records),
+            'height_reference':'initial deformed dielectric edge' }

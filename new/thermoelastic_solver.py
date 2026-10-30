@@ -3,7 +3,7 @@
 Coordinates and the solved displacement are divided by L0; u_field is
 converted to metres for output. The reference material map identifies the
 SiO2 base and annulus independently of phi. Elastic or optional J2 elastoplastic pre-contact mechanics.
-Stage 15 uses a different origin: z_stage15 = z_reference - base_thickness/L0.
+The phase model uses z_phase = z_reference - base_thickness/L0.
 ANSYS parity has not yet been established.
 """
 
@@ -509,15 +509,22 @@ def solve_structural(mesh, tracker, material_cu, T_field,
                      surface_z_dimless=None, surface_tol_dimless=0.006,
                      *, geometry=None, material_dielectric=None,
                      boundary_conditions=None, residual_void_E_Pa=1e3,
-                     plasticity_cu=None, plasticity_dielectric=None, load_steps=20, load_factors=None):
+                     plasticity_cu=None, plasticity_dielectric=None, load_steps=20, load_factors=None,
+                     initial_plastic_state=None, initial_displacement=None, cu_occupancy=None, fractional_occupancy=False):
     """Solve on the full base/annulus reference domain.
 
     Legacy pad_height_dimless denotes Cu thickness after recess. Explicit
     geometry is required to prevent silently treating a Cu-only mesh as the
     full mechanical domain. phi must be a scalar Function on this mesh.
     Void uses residual stiffness; this is not a contact model.
-    Optional plastic laws integrate a virgin-state thermal load path; phi-driven
-    evolving plasticity and external history continuation are not supported yet.
+    Optional plastic laws integrate a virgin or continued thermal load path.
+    History continuation requires the same mesh and dimensionless displacement.
+    Phi-driven plasticity still requires a validated history-transfer policy.
+    cu_occupancy is an experimental DG0 reference-map override (binary by default).
+    fractional_occupancy enables a uniform-strain constituent mixture with
+    intrinsic Cu plasticity and separately weighted stress/energy contributions. The caller
+    must prepare plastic history consistently (see evolving_mechanics); it is not
+    a material transport rule or a conservative phase-to-mechanics remap.
     W_field is Cu-localized; W_full_field retains energy in every material.
     """
     if geometry is None:
@@ -532,6 +539,22 @@ def solve_structural(mesh, tracker, material_cu, T_field,
     if not np.isclose(pad_radius_dimless, g.pad_radius_nm/g.L0_nm) or not np.isclose(
             pad_height_dimless, (g.pad_height_nm-g.recess_nm)/g.L0_nm):
         raise ValueError("Legacy pad dimensions must match geometry")
+    if fractional_occupancy and (cu_occupancy is None or plasticity_cu is None):
+        raise ValueError('Fractional mechanics requires explicit occupancy and a Cu plasticity law')
+    if cu_occupancy is not None:
+        if phi is not None:
+            raise ValueError('Supply phi or explicit Cu occupancy, not both')
+        if cu_occupancy.function_space.mesh is not mesh or cu_occupancy.ufl_shape:
+            raise ValueError('Cu occupancy must be scalar on the mechanics mesh')
+        if cu_occupancy.function_space.ufl_element()!=element("DG",mesh.basix_cell(),0):
+            raise ValueError('Experimental occupancy must be cellwise DG0')
+        values=cu_occupancy.x.array
+        if not np.all(np.isfinite(values)) or np.any(values<0) or np.any(values>1):
+            raise ValueError('Occupancy must be finite and between zero and one')
+        if not fractional_occupancy and not np.all(np.isin(values,[0.,1.])):
+            raise ValueError('Experimental occupancy must be binary')
+        if plasticity_dielectric is not None:
+            raise NotImplementedError('Evolving occupancy currently supports elastic dielectric only')
     if phi is not None and (phi.function_space.mesh is not mesh or phi.ufl_shape):
         raise ValueError("phi must be scalar and live on the mechanics mesh")
     for axis, expected in ((0, g.outer_radius_nm/g.L0_nm), (1, g.top)):
@@ -553,7 +576,9 @@ def solve_structural(mesh, tracker, material_cu, T_field,
     outer = g.outer_radius_nm/g.L0_nm
     # Fixed reference dielectric identity; both dielectric regions deform.
     dielectric_mask = ufl.conditional(ufl.Or(ufl.lt(z, base), ufl.gt(r, radius)), 1., 0.)
-    if phi is None:
+    if cu_occupancy is not None:
+        h = cu_occupancy
+    elif phi is None:
         h = ufl.conditional(ufl.le(z, g.cu_top), 1., 0.)
     else:
         clipped = ufl.min_value(1., ufl.max_value(0., phi))
@@ -586,6 +611,15 @@ def solve_structural(mesh, tracker, material_cu, T_field,
             dofs = fem.locate_dofs_geometrical((V.sub(component), collapsed),
                 lambda points, axis=axis, value=value: np.isclose(points[axis], value))
             bcs.append(fem.dirichletbc(zero, dofs, V.sub(component)))
+    if (initial_plastic_state is None) != (initial_displacement is None):
+        raise ValueError('Supply both initial_plastic_state and initial_displacement')
+    if initial_plastic_state is not None and load_factors is None:
+        raise ValueError('Continuation requires explicit absolute load_factors')
+    constituents = None
+    if fractional_occupancy:
+        constituents={'theta_cu':material_cu.alpha_1_K*(T_field-material_cu.T_ref_K),
+            'theta_dielectric':dielectric.alpha_1_K*(T_field-dielectric.T_ref_K),
+            'void':void,'void_E':residual_void_E_Pa}
     plastic_state = None
     plastic_history = []
     if plasticity_cu is not None or plasticity_dielectric is not None:
@@ -599,15 +633,19 @@ def solve_structural(mesh, tracker, material_cu, T_field,
         u, elastic, sigma, plastic_state, plastic_history = solve_plastic_path(
             V, eps, C, mu, theta, cu, dielectric_mask,
             material_cu, dielectric, plasticity_cu, plasticity_dielectric,
-            bcs, load_factors, measure)
+            bcs, load_factors, measure, initial_state=initial_plastic_state,
+            initial_displacement=initial_displacement, constituents=constituents)
     else:
+        if initial_plastic_state is not None:
+            raise ValueError('Plastic history requires an enabled plasticity law')
         if load_factors is not None:
             raise ValueError("load_factors is supported only for plastic load paths")
         u = _linear_solve(a, L, bcs)
         u.name = "displacement_dimless"
         elastic = eps(u) - theta*ufl.Identity(3)
         sigma = C(elastic)
-    energy = 0.5*ufl.inner(sigma, elastic)
+    energy = 0.5*ufl.inner(sigma, elastic) if constituents is None else constituents['energy']
+    cu_energy = cu*energy if constituents is None else constituents['cu_energy']
 
     def project(expr, name):
         q, v = ufl.TrialFunction(Q), ufl.TestFunction(Q)
@@ -616,11 +654,11 @@ def solve_structural(mesh, tracker, material_cu, T_field,
         return result
 
     W_full = project(energy, "W_full_J_m3")
-    W = project(cu*energy, "W_Cu_J_m3")
+    W = project(cu_energy, "W_Cu_J_m3")
     # The actual SiO2 CSV W is FULL elastic energy, including all normal
     # components and sigma_rz*gamma_rz inside the half factor. The exported
     # shear strain is engineering gamma_rz = 2*epsilon_rz, as verified from G.
-    W_legacy = project(cu*energy, "W_ansys_like_J_m3")
+    W_legacy = project(cu_energy, "W_ansys_like_J_m3")
     stresses = {name: project(sigma[i,j], name) for name, i, j in
                 (("sigma_rr",0,0), ("sigma_zz",1,1), ("sigma_tt",2,2), ("sigma_rz",0,1))}
     physical = Function(V, name="displacement_m")
@@ -650,7 +688,7 @@ def solve_structural(mesh, tracker, material_cu, T_field,
     cu_volume = integrate(cu)
     stats = {"solve_time_s": time.perf_counter()-t_start,
              "W_max_J_m3": maximum,
-             "W_mean_J_m3": float(integrate(cu*energy)/cu_volume) if cu_volume > 0 else 0.0,
+             "W_mean_J_m3": float(integrate(cu_energy)/cu_volume) if cu_volume > 0 else 0.0,
              "UY_center_nm": float(cu_surface[0,3]*g.L0_nm),
              "UY_edge_nm": float(cu_surface[-1,3]*g.L0_nm),
              "dielectric_edge_UY_nm": float(dielectric_surface[0,3]*g.L0_nm),
@@ -658,6 +696,9 @@ def solve_structural(mesh, tracker, material_cu, T_field,
                 -dielectric_surface[0,1]-dielectric_surface[0,3])*g.L0_nm),
              "residual_void_E_Pa": residual_void_E_Pa}
     stats["plasticity_enabled"] = plastic_state is not None
+    stats["history_continued"] = initial_plastic_state is not None
+    stats["fractional_cu_occupancy"] = fractional_occupancy
+    stats["explicit_cu_occupancy"] = cu_occupancy is not None
     if plastic_state is not None:
         stats["plastic_load_history"] = plastic_history
         stats["max_equivalent_plastic_strain"] = plastic_history[-1]["max_equivalent_plastic_strain"]
@@ -672,12 +713,16 @@ def solve(phi, mesh, material_cu, T_anneal_K, L0_m, pad_radius_dimless,
           pad_height_dimless, tracker=None, contact_state="pre", p_contact=None,
           surface_z_dimless=None, steady_state_thermal=True, *, geometry=None,
           material_dielectric=None, boundary_conditions=None, residual_void_E_Pa=1e3,
-                     plasticity_cu=None, plasticity_dielectric=None, load_steps=20, load_factors=None):
+                     plasticity_cu=None, plasticity_dielectric=None, load_steps=20, load_factors=None,
+                     initial_plastic_state=None, initial_displacement=None, cu_occupancy=None, fractional_occupancy=False):
     """Uniform-temperature mechanics; optional incremental J2 thermal path.
 
-    Plastic paths start from virgin material at the reference temperatures on
-    every call. load_factors scales the target thermal increment and can include
-    unloading; it does not specify elapsed time or solve transient heat flow.
+    By default plastic paths start from virgin material. To continue, supply
+    initial_plastic_state and initial_displacement from a previous result on
+    the same mesh, plus explicit absolute load_factors. Caller history is copied.
+    Factors scale thermal strain relative to the material reference temperatures;
+    they do not specify elapsed time or solve transient heat flow. Continued
+    calls assume unchanged geometry, material laws, normalization, and constraints.
     """
     if not steady_state_thermal:
         raise NotImplementedError("Transient heating requires a validated thermal material map")
@@ -689,7 +734,9 @@ def solve(phi, mesh, material_cu, T_anneal_K, L0_m, pad_radius_dimless,
         p_contact, surface_z_dimless, geometry=geometry, material_dielectric=dielectric,
         boundary_conditions=boundary_conditions, residual_void_E_Pa=residual_void_E_Pa,
         plasticity_cu=plasticity_cu, plasticity_dielectric=plasticity_dielectric,
-        load_steps=load_steps, load_factors=load_factors)
+        load_steps=load_steps, load_factors=load_factors,
+        initial_plastic_state=initial_plastic_state, initial_displacement=initial_displacement,
+        cu_occupancy=cu_occupancy, fractional_occupancy=fractional_occupancy)
 
 
 if __name__ == "__main__":

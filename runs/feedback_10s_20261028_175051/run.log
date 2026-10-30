@@ -1,0 +1,198 @@
+EXPERIMENTAL feedback pilot: /Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/runs/feedback_10s_20261028_175051
+Phase mesh 100x220; mechanics 80x80 per layer; duration 10.0 s.
+Thermal reference 22 C remains unverified. Fractional history uses homogeneous virgin-Cu mixing.
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+Running mechanics update every 1 phase step(s), nominal 0.25 s.
+t = 0 s | mass drift = 0.000e+00 | center relative to dielectric edge = -2.12141 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 0.25 s | mass drift = -1.235e-14 | center relative to dielectric edge = -2.22146 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 0.5 s | mass drift = -1.113e-15 | center relative to dielectric edge = -2.23653 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 0.75 s | mass drift = -3.227e-15 | center relative to dielectric edge = -2.24489 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 1 s | mass drift = 3.338e-16 | center relative to dielectric edge = -2.25091 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 1.25 s | mass drift = -4.451e-16 | center relative to dielectric edge = -2.2557 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 1.5 s | mass drift = -4.451e-16 | center relative to dielectric edge = -2.25972 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 1.75 s | mass drift = -5.452e-15 | center relative to dielectric edge = -2.26322 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 2 s | mass drift = 5.007e-15 | center relative to dielectric edge = -2.26634 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 2.25 s | mass drift = -1.324e-14 | center relative to dielectric edge = -2.26915 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 2.5 s | mass drift = -1.113e-15 | center relative to dielectric edge = -2.27172 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 2.75 s | mass drift = 1.001e-15 | center relative to dielectric edge = -2.2741 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 3 s | mass drift = 1.113e-15 | center relative to dielectric edge = -2.27632 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 3.25 s | mass drift = 2.893e-15 | center relative to dielectric edge = -2.2784 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 3.5 s | mass drift = -7.566e-15 | center relative to dielectric edge = -2.28035 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 3.75 s | mass drift = -3.894e-15 | center relative to dielectric edge = -2.2822 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 4 s | mass drift = -5.230e-15 | center relative to dielectric edge = -2.28396 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 4.25 s | mass drift = -1.669e-15 | center relative to dielectric edge = -2.28564 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 4.5 s | mass drift = -1.124e-14 | center relative to dielectric edge = -2.28724 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 4.75 s | mass drift = 5.564e-16 | center relative to dielectric edge = -2.28878 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 5 s | mass drift = 4.785e-15 | center relative to dielectric edge = -2.29025 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 5.25 s | mass drift = 7.010e-15 | center relative to dielectric edge = -2.29168 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 5.5 s | mass drift = -3.894e-15 | center relative to dielectric edge = -2.29305 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 5.75 s | mass drift = 5.118e-15 | center relative to dielectric edge = -2.29438 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 6 s | mass drift = 6.676e-16 | center relative to dielectric edge = -2.29566 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 6.25 s | mass drift = 8.902e-15 | center relative to dielectric edge = -2.29691 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 6.5 s | mass drift = -1.113e-15 | center relative to dielectric edge = -2.29812 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 6.75 s | mass drift = 1.224e-15 | center relative to dielectric edge = -2.2993 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 7 s | mass drift = 5.452e-15 | center relative to dielectric edge = -2.30044 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 7.25 s | mass drift = 3.894e-15 | center relative to dielectric edge = -2.30155 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 7.5 s | mass drift = -1.146e-14 | center relative to dielectric edge = -2.30264 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 7.75 s | mass drift = -3.561e-15 | center relative to dielectric edge = -2.30369 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 8 s | mass drift = -6.676e-16 | center relative to dielectric edge = -2.30472 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 8.25 s | mass drift = -5.452e-15 | center relative to dielectric edge = -2.30573 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 8.5 s | mass drift = -2.225e-15 | center relative to dielectric edge = -2.30671 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 8.75 s | mass drift = -1.113e-15 | center relative to dielectric edge = -2.30766 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 9 s | mass drift = -2.003e-15 | center relative to dielectric edge = -2.3086 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 9.25 s | mass drift = -7.789e-16 | center relative to dielectric edge = -2.30951 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 9.5 s | mass drift = 3.561e-15 | center relative to dielectric edge = -2.3104 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 9.75 s | mass drift = -5.564e-15 | center relative to dielectric edge = -2.31127 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 10 s | mass drift = -8.457e-15 | center relative to dielectric edge = -2.31212 nm
+Running mechanics update every 2 phase step(s), nominal 0.5 s.
+t = 0 s | mass drift = 0.000e+00 | center relative to dielectric edge = -2.12141 nm
+t = 0.25 s | mass drift = -1.235e-14 | center relative to dielectric edge = -2.22146 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 0.5 s | mass drift = -1.113e-14 | center relative to dielectric edge = -2.23653 nm
+t = 0.75 s | mass drift = -4.896e-15 | center relative to dielectric edge = -2.24489 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 1 s | mass drift = 0.000e+00 | center relative to dielectric edge = -2.25091 nm
+t = 1.25 s | mass drift = 6.342e-15 | center relative to dielectric edge = -2.2557 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 1.5 s | mass drift = 1.113e-14 | center relative to dielectric edge = -2.25972 nm
+t = 1.75 s | mass drift = 2.893e-15 | center relative to dielectric edge = -2.26322 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 2 s | mass drift = 6.788e-15 | center relative to dielectric edge = -2.26634 nm
+t = 2.25 s | mass drift = -5.786e-15 | center relative to dielectric edge = -2.26915 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 2.5 s | mass drift = -6.342e-15 | center relative to dielectric edge = -2.27172 nm
+t = 2.75 s | mass drift = -5.230e-15 | center relative to dielectric edge = -2.2741 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 3 s | mass drift = -4.451e-15 | center relative to dielectric edge = -2.27632 nm
+t = 3.25 s | mass drift = -6.676e-15 | center relative to dielectric edge = -2.2784 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 3.5 s | mass drift = -3.116e-15 | center relative to dielectric edge = -2.28035 nm
+t = 3.75 s | mass drift = 7.233e-15 | center relative to dielectric edge = -2.2822 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 4 s | mass drift = -6.454e-15 | center relative to dielectric edge = -2.28396 nm
+t = 4.25 s | mass drift = -4.451e-16 | center relative to dielectric edge = -2.28564 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 4.5 s | mass drift = -5.230e-15 | center relative to dielectric edge = -2.28724 nm
+t = 4.75 s | mass drift = -4.451e-16 | center relative to dielectric edge = -2.28878 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 5 s | mass drift = -3.338e-16 | center relative to dielectric edge = -2.29025 nm
+t = 5.25 s | mass drift = 9.124e-15 | center relative to dielectric edge = -2.29168 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 5.5 s | mass drift = -4.673e-15 | center relative to dielectric edge = -2.29305 nm
+t = 5.75 s | mass drift = 2.337e-15 | center relative to dielectric edge = -2.29438 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 6 s | mass drift = -5.786e-15 | center relative to dielectric edge = -2.29566 nm
+t = 6.25 s | mass drift = 3.227e-15 | center relative to dielectric edge = -2.29691 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 6.5 s | mass drift = -2.448e-15 | center relative to dielectric edge = -2.29812 nm
+t = 6.75 s | mass drift = 2.893e-15 | center relative to dielectric edge = -2.2993 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 7 s | mass drift = -1.892e-15 | center relative to dielectric edge = -2.30044 nm
+t = 7.25 s | mass drift = 2.893e-15 | center relative to dielectric edge = -2.30155 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 7.5 s | mass drift = -5.118e-15 | center relative to dielectric edge = -2.30264 nm
+t = 7.75 s | mass drift = -3.672e-15 | center relative to dielectric edge = -2.30369 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 8 s | mass drift = -6.120e-15 | center relative to dielectric edge = -2.30472 nm
+t = 8.25 s | mass drift = -5.564e-15 | center relative to dielectric edge = -2.30573 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 8.5 s | mass drift = -2.782e-15 | center relative to dielectric edge = -2.30671 nm
+t = 8.75 s | mass drift = -2.448e-15 | center relative to dielectric edge = -2.30766 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 9 s | mass drift = -6.342e-15 | center relative to dielectric edge = -2.3086 nm
+t = 9.25 s | mass drift = -3.561e-15 | center relative to dielectric edge = -2.30951 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 9.5 s | mass drift = 6.899e-15 | center relative to dielectric edge = -2.3104 nm
+t = 9.75 s | mass drift = 8.902e-16 | center relative to dielectric edge = -2.31127 nm
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 10 s | mass drift = -5.341e-15 | center relative to dielectric edge = -2.31212 nm
+{
+  "difference_convention": "interval 1 minus interval 2",
+  "wall_seconds": 212.94596104102675,
+  "surface_rms_difference_nm": 1.4974863613366735e-05,
+  "surface_max_difference_nm": 9.03098324442908e-05,
+  "center_difference_nm": -2.5731367259140825e-08,
+  "edge_difference_nm": 9.03098324442908e-05,
+  "nodal_energy_rms_difference_J_m3": 13.091774511477785,
+  "nodal_energy_relative_L2_difference": 3.6057957950148646e-05,
+  "max_equivalent_plastic_strain_difference": 1.93484040380415e-06,
+  "run_summaries": [
+    {
+      "final_time_s": 10.0,
+      "accepted_steps": 40,
+      "rejected_steps": 0,
+      "solver_rebuilds": 0,
+      "relative_mass_drift": -8.456566798921505e-15,
+      "phi_min": 3.9353104576147143e-07,
+      "phi_max": 1.0,
+      "center_relative_to_dielectric_edge_nm": -2.3121197416335337,
+      "missing_surface_fraction": 0.0,
+      "kinetic_rate_per_s": 0.0008279515180271653,
+      "coupling": "experimental staggered feedback; frozen column coordinates",
+      "mechanical_updates": 40,
+      "height_reference": "initial deformed dielectric edge",
+      "wall_seconds": 108.92658425006084,
+      "max_relative_mechanics_volume_drift": 7.826345591516718e-16,
+      "max_mass_vs_contour_height_difference_nm": 0.2405589346465612
+    },
+    {
+      "final_time_s": 10.0,
+      "accepted_steps": 40,
+      "rejected_steps": 0,
+      "solver_rebuilds": 0,
+      "relative_mass_drift": -5.340989557213582e-15,
+      "phi_min": 3.9353099830558887e-07,
+      "phi_max": 1.0,
+      "center_relative_to_dielectric_edge_nm": -2.3121197159021722,
+      "missing_surface_fraction": 0.0,
+      "kinetic_rate_per_s": 0.0008279515180271653,
+      "coupling": "experimental staggered feedback; frozen column coordinates",
+      "mechanical_updates": 20,
+      "height_reference": "initial deformed dielectric edge",
+      "wall_seconds": 72.38376699993387,
+      "max_relative_mechanics_volume_drift": 5.59024685108337e-16,
+      "max_mass_vs_contour_height_difference_nm": 0.24012996151557414
+    }
+  ],
+  "interpretation": "Two update intervals on the same fixed-step phase path; no automatic accuracy/pass threshold"
+}

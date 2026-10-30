@@ -1,0 +1,24 @@
+{
+  "solve_time_s": 1.5608826659154147,
+  "W_max_J_m3": 1122010.2312746143,
+  "W_mean_J_m3": 367837.8973951387,
+  "UY_center_nm": 2.7557553240473847,
+  "UY_edge_nm": 1.3542613161379013,
+  "dielectric_edge_UY_nm": 1.3524781490549496,
+  "relative_edge_height_nm": -3.4982168329166474,
+  "residual_void_E_Pa": 1000.0,
+  "plasticity_enabled": true,
+  "history_continued": true,
+  "fractional_cu_occupancy": true,
+  "explicit_cu_occupancy": true,
+  "plastic_load_history": [
+    {
+      "load_factor": 1.0,
+      "newton_iterations": 5,
+      "snes_reason": 2,
+      "max_equivalent_plastic_strain": 0.041359287404583694,
+      "max_yield_violation_Pa": 4.3213367462158203e-07
+    }
+  ],
+  "max_equivalent_plastic_strain": 0.041359287404583694
+}

@@ -1,0 +1,8 @@
+{
+  "time_s": 100.0,
+  "accepted_steps": 400,
+  "rejected_steps": 0,
+  "solver_rebuilds": 0,
+  "relative_mass_drift": -6.453695714966398e-15,
+  "missing_surface_fraction": 0.0
+}

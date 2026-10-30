@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": [
+    "initial thermal shift removed once",
+    "phase surface change preserved",
+    "map immutable from caller arrays",
+    "out-of-domain surfaces rejected",
+    "affine FE transfer exact",
+    "dielectric/below-pad exclusion",
+    "identical fields give exact zero change",
+    "unmapped phase queries rejected"
+  ],
+  "scope": "frozen-column coordinate map only; no plastic transport or two-way evolution"
+}

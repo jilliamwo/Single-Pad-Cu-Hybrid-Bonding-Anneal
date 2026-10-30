@@ -57,7 +57,7 @@ def environment():
 def run(args):
     data=(smoke_config() if args.preset=='smoke' else ModelConfig()).to_dict()
     if args.config:data.update(json.loads(Path(args.config).read_text()))
-    for key in ('duration_s','dt_s','ansys_csv','ansys_interpolation'):
+    for key in ('duration_s','dt_s','ansys_csv','ansys_interpolation','reference_C'):
         value=getattr(args,key)
         if value is not None:data[key]=value
     if args.source:data['mechanics_source']=args.source
@@ -80,6 +80,8 @@ def run(args):
         try:
             write_json(out/'status.json',{'status':'running'})
             print(f'Model output: {out}\nMechanics: {config.mechanics_source}; phase duration: {config.duration_s:g} s',flush=True)
+            if config.mechanics_source=='native':
+                print(f'Thermal reference: {config.reference_C:g} C (assumed input; ANSYS reference has not been verified).',flush=True)
             if args.preset=='smoke':print('SMOKE PRESET: coarse workflow test, not a physical prediction.',flush=True)
             import numpy as np
             from static_coupling import build_static_mechanics
@@ -103,13 +105,23 @@ def compare(args):
     configs=[json.loads((p/'config.json').read_text()) for p in (left,right)]
     for p in (left,right):
         if json.loads((p/'status.json').read_text())['status']!='completed':raise ValueError(f'Run is not complete: {p}')
-    ignored={'mechanics_source','ansys_csv','ansys_interpolation','plasticity','mechanics_nr','mechanics_nz','thermal_steps','write_fields'}
-    differences={k:[configs[0][k],configs[1].get(k)] for k in configs[0] if k not in ignored and configs[0][k]!=configs[1].get(k)}
-    if differences:raise ValueError(f'Comparison requires matching phase-field settings: {differences}')
+    study=args.study
+    allowed={'time':{'dt_s','max_dt_s'},'mesh':{'phase_nr','phase_nz'},'energy':{'mechanical_energy_multiplier'}}
+    ignored=({'write_fields'}|allowed[study]) if study!='inputs' else {
+        'mechanics_source','ansys_csv','ansys_interpolation','plasticity',
+        'mechanics_nr','mechanics_nz','thermal_steps','write_fields'}
+    differences={k:[configs[0].get(k),configs[1].get(k)] for k in configs[0].keys()|configs[1].keys()
+                 if k not in ignored and configs[0].get(k)!=configs[1].get(k)}
+    if differences:raise ValueError(f'{study} comparison has incompatible settings: {differences}')
+    if study!='inputs' and not any(configs[0][k]!=configs[1][k] for k in allowed[study]):
+        raise ValueError(f'{study} study requires different {sorted(allowed[study])}')
+    summaries=[json.loads((p/'summary.json').read_text()) for p in (left,right)]
+    if any(abs(s['final_time_s']-c['duration_s'])>1e-9 for s,c in zip(summaries,configs)):
+        raise ValueError('A run did not reach its configured final time')
     out=Path(args.output).resolve()
     if out.exists() and any(out.iterdir()):raise ValueError(f'Refusing to overwrite: {out}')
     out.mkdir(parents=True,exist_ok=True)
-    result={'left':str(left.resolve()),'right':str(right.resolve()),'difference_convention':'left minus right','source_configs':configs}
+    result={'left':str(left.resolve()),'right':str(right.resolve()),'difference_convention':'left minus right','source_configs':configs,'study':study}
     deltas={}
     for stage in ('initial','final'):
         a=np.loadtxt(left/f'{stage}_surface.csv',delimiter=',',skiprows=1)
@@ -122,7 +134,9 @@ def compare(args):
         np.savetxt(out/f'{stage}_comparison.csv',np.column_stack((a[:,0],a[:,1],other,delta)),delimiter=',',header='r_nm,left_z_phase_nm,right_z_phase_nm,left_minus_right_nm',comments='')
     evolution=deltas['final']-deltas['initial']
     result['evolution_difference']={'surface_change_rmse_nm':float(np.sqrt(np.mean(evolution**2))),'center_change_difference_nm':float(evolution[0]),'edge_change_difference_nm':float(evolution[-1])}
-    result['run_summaries']=[json.loads((p/'summary.json').read_text()) for p in (left,right)]
+    result['run_summaries']=summaries
+    if study!='inputs':
+        result['interpretation']='Pairwise sensitivity only; no convergence order or automatic pass/fail claim.'
     write_json(out/'comparison.json',result)
     print(json.dumps({k:result[k] for k in ('initial','final','evolution_difference')},indent=2))
     print(f'Send this archive with both run archives: {package(out)}')
@@ -138,11 +152,14 @@ def main():
     p.add_argument('--config',help='JSON settings; overrides preset')
     p.add_argument('--source',choices=['native','ansys','none'])
     p.add_argument('--duration-s',type=float);p.add_argument('--dt-s',type=float)
+    p.add_argument('--reference-c',dest='reference_C',type=float,help='Stress-free reference temperature; default 22 C is an unverified calibration assumption')
     p.add_argument('--ansys-csv');p.add_argument('--ansys-interpolation',choices=['linear','nearest'])
     p.add_argument('--no-plasticity',action='store_true');p.add_argument('--no-fields',action='store_true')
     p.add_argument('--output',required=True)
     p=sub.add_parser('compare',help='Compare matching native and ANSYS-driven phase runs')
     p.add_argument('left');p.add_argument('right');p.add_argument('--output',required=True)
+    p.add_argument('--study',choices=['inputs','time','mesh','energy'],default='inputs',
+                   help='Allow only the numerical settings varied by this sensitivity study')
     p=sub.add_parser('package',help='Rebuild the small archive, including after an interrupted run')
     p.add_argument('folder')
     args=parser.parse_args()

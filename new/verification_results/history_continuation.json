@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "mesh": "8 radial subdivisions; 8 per main vertical layer",
+  "checks": [
+    "split heating equals continuous path",
+    "input history and displacement immutable",
+    "same-load re-equilibration preserves state",
+    "split cooling equals continuous path",
+    "failed continuation leaves caller state unchanged",
+    "different mesh rejected"
+  ],
+  "split_vs_full_max_displacement_difference_dimless": 0.0,
+  "heated_max_equivalent_plastic_strain": 0.0028497612049463356,
+  "scope": "fixed geometry only; not an evolving-phase two-way simulation"
+}

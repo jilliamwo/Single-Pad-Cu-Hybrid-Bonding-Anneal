@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "checks": [
+    "pilot completes both independent interval cases",
+    "four versus two mechanical updates",
+    "archive contains both case histories and source snapshot"
+  ],
+  "smoke_comparison": {
+    "difference_convention": "interval 1 minus interval 2",
+    "wall_seconds": 6.381128375069238,
+    "surface_rms_difference_nm": 4.0778498456552524e-07,
+    "surface_max_difference_nm": 1.2875760262431868e-06,
+    "center_difference_nm": -4.583311010719626e-07,
+    "edge_difference_nm": -5.40315966190974e-07,
+    "nodal_energy_rms_difference_J_m3": 0.45291592208169057,
+    "nodal_energy_relative_L2_difference": 1.0697468818239539e-06,
+    "max_equivalent_plastic_strain_difference": 2.3355577332593268e-06,
+    "run_summaries": [
+      {
+        "final_time_s": 0.1,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "solver_rebuilds": 0,
+        "relative_mass_drift": 5.009889124585404e-15,
+        "phi_min": -0.0023540222199219373,
+        "phi_max": 1.0079537620930266,
+        "center_relative_to_dielectric_edge_nm": -4.219709058926268,
+        "missing_surface_fraction": 0.0,
+        "kinetic_rate_per_s": 0.0008279515180271653,
+        "coupling": "experimental staggered feedback; frozen column coordinates",
+        "mechanical_updates": 4,
+        "height_reference": "initial deformed dielectric edge",
+        "wall_seconds": 3.257072208914906,
+        "max_relative_mechanics_volume_drift": 3.354148110650016e-16,
+        "max_mass_vs_contour_height_difference_nm": 0.8817692219418789
+      },
+      {
+        "final_time_s": 0.1,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "solver_rebuilds": 0,
+        "relative_mass_drift": 5.343881732891098e-15,
+        "phi_min": -0.00235402197774056,
+        "phi_max": 1.0079537797122982,
+        "center_relative_to_dielectric_edge_nm": -4.219708600595117,
+        "missing_surface_fraction": 0.0,
+        "kinetic_rate_per_s": 0.0008279515180271653,
+        "coupling": "experimental staggered feedback; frozen column coordinates",
+        "mechanical_updates": 2,
+        "height_reference": "initial deformed dielectric edge",
+        "wall_seconds": 2.482953542028554,
+        "max_relative_mechanics_volume_drift": 1.118049370216672e-16,
+        "max_mass_vs_contour_height_difference_nm": 0.8817691353743711
+      }
+    ],
+    "interpretation": "Two update intervals on the same fixed-step phase path; no automatic accuracy/pass threshold"
+  },
+  "scope": "tiny workflow test; routine pilot reserved for user"
+}

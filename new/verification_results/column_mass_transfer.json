@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks": [
+    "zero change preserves initial geometry",
+    "analytic radial redistribution reproduced",
+    "zero total mass redistribution conserves graph volume",
+    "nonaligned radial intervals integrate P1 exactly",
+    "independent FE mass integral agrees",
+    "fractional mechanics volume matches phase mass change",
+    "initial phase snapshot immutable",
+    "nonfinite input rejected"
+  ],
+  "example": {
+    "phase_mass_change_without_2pi": -2.6462081300113654e-07,
+    "graph_volume_change_without_2pi": -2.646208130011365e-07,
+    "mass_transfer_absolute_error": 5.293955920339377e-23,
+    "max_abs_mass_equivalent_height_change": 5.1898984067743994e-06
+  },
+  "scope": "mass-equivalent column projection; not the phi=0.5 contour or physical validation"
+}

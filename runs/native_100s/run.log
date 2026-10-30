@@ -1,0 +1,23 @@
+Model output: /Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/runs/native_100s
+Mechanics: native; phase duration: 100 s
+[Thermal] Steady-state: T = 523.15 K (250.0 °C) uniform
+t = 0 s | mass drift = 0.000e+00 | center relative to dielectric edge = -2.12141 nm
+Retrying at dt=0.5s
+Retrying at dt=0.25s
+Retrying at dt=0.125s
+Retrying at dt=0.0625s
+Retrying at dt=0.03125s
+Traceback (most recent call last):
+  File "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/run_model.py", line 91, in run
+    summary=run_phase_field(config,mechanics,out)
+  File "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/new/phase_field_solver.py", line 130, in run_phase_field
+    raise RuntimeError(f'Phase solve failed at t={t:g}s, dt={attempt_dt:g}s, SNES={reason}; minimum dt reached. {failure or ""}')
+RuntimeError: Phase solve failed at t=44s, dt=0.03125s, SNES=-999; minimum dt reached. error code 73
+[0] SNESSolve() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/snes/interface/snes.c:4881
+[0] SNESSolve_NEWTONLS() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/snes/impls/ls/ls.c:234
+[0] SNESLineSearchApply() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/snes/linesearch/interface/linesearch.c:645
+[0] SNESLineSearchApply_BT() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/snes/linesearch/impls/bt/linesearchbt.c:123
+[0] MatMult() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/src/mat/interface/matrix.c:2667
+[0] VecSetErrorIfLocked() at /Users/runner/miniforge3/conda-bld/bld/rattler-build_petsc_1780661667/work/include/petscvec.h:672
+[0] Object is in wrong state
+[0] Vector 'Vec_0xc4000007_0' (argument #3) was locked for read-only access in unknown_function() at unknown file:0 (line numbers only accurate to function begin)

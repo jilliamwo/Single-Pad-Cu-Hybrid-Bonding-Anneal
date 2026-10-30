@@ -1,0 +1,79 @@
+{
+  "source_run": "runs/native_dt05_100s",
+  "saved_times_s": [
+    0.0,
+    100.0
+  ],
+  "phase_mesh_cells": 44000,
+  "no_phase_or_mechanics_solve": true,
+  "independent_phase_mass_change_without_2pi": -2.303929616531697e-19,
+  "relative_phase_mass_change": -1.8472660822068003e-18,
+  "contour_reference_volume_change_relative": -9.269511671737048e-05,
+  "radial_resolution_results": [
+    {
+      "radial_nodes": 51,
+      "phase_mass_change_without_2pi": -1.5246593050577406e-18,
+      "graph_volume_change_without_2pi": -1.5447726977552992e-18,
+      "mass_transfer_absolute_error": -2.0113392697558627e-20,
+      "max_abs_mass_equivalent_height_change": 0.014101420998761069,
+      "mass_balance_error_relative_to_initial_Cu_volume": -1.0563601227388978e-17,
+      "mass_vs_contour_rms_nm": 0.06357038161118583,
+      "mass_vs_contour_max_nm": 0.18615058528618794,
+      "center_mass_height_change_nm": -0.10808820612280773,
+      "edge_mass_height_change_nm": -7.050710499380534,
+      "reference_height_in_domain": true,
+      "rms_vs_401_nodes_nm": 0.0031710911759215807,
+      "max_vs_401_nodes_nm": 0.024842671614058384
+    },
+    {
+      "radial_nodes": 101,
+      "phase_mass_change_without_2pi": -1.5009423825346202e-18,
+      "graph_volume_change_without_2pi": -1.5390157247079448e-18,
+      "mass_transfer_absolute_error": -3.807334217332462e-20,
+      "max_abs_mass_equivalent_height_change": 0.014151106343359764,
+      "mass_balance_error_relative_to_initial_Cu_volume": -1.0386176400572367e-17,
+      "mass_vs_contour_rms_nm": 0.06356357298692995,
+      "mass_vs_contour_max_nm": 0.18848362785272135,
+      "center_mass_height_change_nm": -0.1060896142005032,
+      "edge_mass_height_change_nm": -7.075553171679882,
+      "reference_height_in_domain": true,
+      "rms_vs_401_nodes_nm": 5.6270613833295896e-11,
+      "max_vs_401_nodes_nm": 6.852894987585678e-10
+    },
+    {
+      "radial_nodes": 201,
+      "phase_mass_change_without_2pi": -2.388632911257127e-19,
+      "graph_volume_change_without_2pi": -1.9110341859817674e-19,
+      "mass_transfer_absolute_error": 4.7759872527535954e-20,
+      "max_abs_mass_equivalent_height_change": 0.014151106342125555,
+      "mass_balance_error_relative_to_initial_Cu_volume": -2.0472095401916626e-20,
+      "mass_vs_contour_rms_nm": 0.0635635729875558,
+      "mass_vs_contour_max_nm": 0.18848362788047693,
+      "center_mass_height_change_nm": -0.106089614193661,
+      "edge_mass_height_change_nm": -7.0755531710627775,
+      "reference_height_in_domain": true,
+      "rms_vs_401_nodes_nm": 1.1600415185219518e-11,
+      "max_vs_401_nodes_nm": 1.30816364685149e-10
+    },
+    {
+      "radial_nodes": 401,
+      "phase_mass_change_without_2pi": -3.2017845406212553e-19,
+      "graph_volume_change_without_2pi": -2.9817851882358084e-19,
+      "mass_transfer_absolute_error": 2.199993523854469e-20,
+      "max_abs_mass_equivalent_height_change": 0.014151106341989185,
+      "mass_balance_error_relative_to_initial_Cu_volume": -6.619310846619709e-19,
+      "mass_vs_contour_rms_nm": 0.0635635729875832,
+      "mass_vs_contour_max_nm": 0.1884836278691162,
+      "center_mass_height_change_nm": -0.1060896141930198,
+      "edge_mass_height_change_nm": -7.075553170994593,
+      "reference_height_in_domain": true,
+      "rms_vs_401_nodes_nm": 0.0,
+      "max_vs_401_nodes_nm": 0.0
+    }
+  ],
+  "limitations": [
+    "Saved static one-way trajectory, not two-way feedback prediction",
+    "Only saved snapshots available; update-interval and plastic-path sensitivity are not tested",
+    "401 radial graph nodes is a projection comparison, not a refined phase or mechanics mesh"
+  ]
+}

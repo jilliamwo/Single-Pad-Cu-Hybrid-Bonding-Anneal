@@ -1,0 +1,58 @@
+{
+  "source": "native",
+  "statistics": {
+    "solve_time_s": 0.3569464171305299,
+    "W_max_J_m3": 1018952.5213282052,
+    "W_mean_J_m3": 427075.28018792724,
+    "UY_center_nm": 2.6737774351824286,
+    "UY_edge_nm": 1.4940076329714969,
+    "dielectric_edge_UY_nm": 1.4954904372902533,
+    "relative_edge_height_nm": -3.5014828043183956,
+    "residual_void_E_Pa": 1000.0,
+    "plasticity_enabled": true,
+    "plastic_load_history": [
+      {
+        "load_factor": 0.25,
+        "newton_iterations": 1,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0,
+        "max_yield_violation_Pa": 0.0
+      },
+      {
+        "load_factor": 0.5,
+        "newton_iterations": 4,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0005488963501417078,
+        "max_yield_violation_Pa": 6.490154191851616e-08
+      },
+      {
+        "load_factor": 0.75,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.0023010465424385066,
+        "max_yield_violation_Pa": 1.1106021702289581e-07
+      },
+      {
+        "load_factor": 1.0,
+        "newton_iterations": 5,
+        "snes_reason": 2,
+        "max_equivalent_plastic_strain": 0.004439917860168249,
+        "max_yield_violation_Pa": 1.2308009900152683e-07
+      }
+    ],
+    "max_equivalent_plastic_strain": 0.004439917860168249
+  },
+  "L0_nm": 500.0,
+  "z_origin_offset_nm": 500.0,
+  "transfer": "one-sided DG0 point evaluation into P1; reference coordinates; zero outside reference Cu",
+  "Cu_E_Pa": 129000000000.0,
+  "Cu_nu": 0.34,
+  "Cu_alpha_1_K": 1.7e-05,
+  "SiO2_E_Pa": 73000000000.0,
+  "SiO2_nu": 0.17,
+  "SiO2_alpha_1_K": 5.5e-07,
+  "reference_C": 22.0,
+  "temperature_C": 250.0,
+  "yield_stress_Pa": 172300000.0,
+  "tangent_modulus_Pa": 517000000.0
+}

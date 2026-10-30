@@ -1,0 +1,9 @@
+Model output: /Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/runs/native_100s_retry
+Mechanics: native; phase duration: 100 s
+Thermal reference: 22 C (assumed input; ANSYS reference has not been verified).
+Traceback (most recent call last):
+  File "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/run_model.py", line 87, in run
+    from static_coupling import build_static_mechanics
+  File "/Users/williamjo/VSCode/Single-Pad-Cu-Hybrid-Bonding-Anneal/new/static_coupling.py", line 10, in <module>
+    from dolfinx import fem,geometry as dg
+ModuleNotFoundError: No module named 'dolfinx'

@@ -163,3 +163,12 @@ calls do not continue prior history. Evolving-phi plasticity is not supported ye
 python new/validate_plasticity.py
 python new/calibrate_plasticity.py --resolution 40 --steps 20
 ```
+
+
+## History continuation and feedback development
+
+The mechanics API now supports explicit fixed-mesh history continuation through
+`initial_plastic_state` and `initial_displacement` (dimensionless), with explicit
+absolute `load_factors`. Existing calls still initialize virgin material.
+See [TWO_WAY_COUPLING.md](TWO_WAY_COUPLING.md) for semantics, short verification,
+and the remaining work before evolving-geometry feedback can be enabled.

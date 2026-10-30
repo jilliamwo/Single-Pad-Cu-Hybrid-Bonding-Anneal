@@ -1,0 +1,58 @@
+{
+  "native": "runs/native_100s_retry2",
+  "ansys": "runs/ansys_100s_retry",
+  "bands": {
+    "Cu_interior": {
+      "n": 19602,
+      "native_mean_J_m3": 348219.18271063676,
+      "ansys_mean_J_m3": 335722.80847452756,
+      "rms_difference_J_m3": 37059.00754400841,
+      "relative_rms_difference": 0.10105948051621369,
+      "native_zero_nodes": 0,
+      "ansys_zero_nodes": 0
+    },
+    "upper_10nm": {
+      "n": 396,
+      "native_mean_J_m3": 33118.88267938675,
+      "ansys_mean_J_m3": 24542.885777127045,
+      "rms_difference_J_m3": 61661.809608064614,
+      "relative_rms_difference": 1.1961895773540143,
+      "native_zero_nodes": 0,
+      "ansys_zero_nodes": 0
+    },
+    "upper_10nm_axis_r_lt25": {
+      "n": 36,
+      "native_mean_J_m3": 4825.623096763669,
+      "ansys_mean_J_m3": 4542.910165494952,
+      "rms_difference_J_m3": 2141.5386985742916,
+      "relative_rms_difference": 0.39216025762725343,
+      "native_zero_nodes": 0,
+      "ansys_zero_nodes": 0
+    },
+    "upper_10nm_middle_r25to225": {
+      "n": 320,
+      "native_mean_J_m3": 13291.993448014848,
+      "ansys_mean_J_m3": 12753.330146794153,
+      "rms_difference_J_m3": 8215.820492499544,
+      "relative_rms_difference": 0.34068157728557763,
+      "native_zero_nodes": 0,
+      "ansys_zero_nodes": 0
+    },
+    "upper_10nm_edge_r_gt225": {
+      "n": 40,
+      "native_mean_J_m3": 217197.93015472274,
+      "ansys_mean_J_m3": 136859.3088702591,
+      "rms_difference_J_m3": 192606.96909738347,
+      "relative_rms_difference": 1.3096954153441625,
+      "native_zero_nodes": 0,
+      "ansys_zero_nodes": 0
+    }
+  },
+  "ansys_reconstruction_max_interior_difference_J_m3": 0.0,
+  "outer25nm_fraction_of_upper10nm_squared_error": 0.9855445661933178,
+  "source_mask_extra_points": 3,
+  "upper10nm_mask_change_rms_J_m3": 3.3553719384260578e-12,
+  "upper10nm_mask_change_max_J_m3": 2.9103830456733704e-11,
+  "upper10nm_initial_localized_dimensionless_forcing_difference_rms": 8.546941142806824e-05,
+  "limitations": "Unweighted nodal diagnostics, not FE volume integrals. Forcing uses common ANSYS analytic initial phi. No causal phase-evolution attribution."
+}
